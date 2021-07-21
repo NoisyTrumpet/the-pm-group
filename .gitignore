@@ -55,8 +55,6 @@ typings/
 .env*
 
 # gatsby files
-.cache/
-.wordpress-cache/
 public
 # .wordpress-cache/
 
