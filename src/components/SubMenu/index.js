@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react"
 import { navigate } from "gatsby"
 import * as React from "react"
-import { HiChevronDown } from "react-icons/hi"
+import { HiChevronDown, HiX } from "react-icons/hi"
 import MenuItem from "./Fragments/MenuItem"
 
 const SubMenu = ({ title, links }) => {
@@ -30,7 +30,7 @@ const SubMenu = ({ title, links }) => {
             {title}
           </Text>
           <Box
-            as={HiChevronDown}
+            as={show ? HiX : HiChevronDown}
             fontSize="3xl"
             color="black"
             onClick={() => {

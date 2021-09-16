@@ -85,16 +85,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         resolve()
       })
 
-      posts.forEach(post => {
+      posts.forEach((post, index) => {
         createPage({
           path: `/news/${post.node.slug}`,
           component: path.resolve("./src/templates/blog.js"),
           context: {
             id: post.node.id,
-            // content: post.node.content,
-            // title: post.node.title,
-            // seo: post.node.seo,
           },
+          // index is zero-based index
+          defer: index + 1 > 20,
         })
         resolve()
       })
