@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const postsPerPage = 12
       const numPages = Math.ceil(posts.length / postsPerPage)
       workItems.forEach(cat => {
-        if (cat.node.name !== "Agency News") {
+        if (cat.node.name !== "Agency News" && cat.node.name !== "Case Study") {
           createPage({
             path: `/our-work/${cat.node.slug}`,
             component: path.resolve("./src/templates/category.js"),

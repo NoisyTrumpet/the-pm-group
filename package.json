@@ -30,7 +30,7 @@
     "gatsby-plugin-sitemap": "^4.8.0",
     "gatsby-plugin-wpgraphql-seo": "^1.2.2",
     "gatsby-source-filesystem": "^4.0.0-zz-next.1",
-    "gatsby-source-wordpress": "^5.12.0",
+    "gatsby-source-wordpress": "^5.13.0",
     "gatsby-transformer-sharp": "^4.0.0-zz-next.1",
     "lmdb-store": "^1.6.8",
     "nanoid": "^3.1.25",
