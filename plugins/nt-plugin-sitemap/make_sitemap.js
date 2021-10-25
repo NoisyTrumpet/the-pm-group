@@ -1,17 +1,17 @@
-const fs = require('fs')
-const path = require('path')
-const util = require('util')
+const fs = require("fs")
+const path = require("path")
+const util = require("util")
 
-const globby = require('globby')
-const mkdirp = require('mkdirp')
-const { createSitemap } = require('sitemap')
+const globby = require("globby")
+const mkdirp = require("mkdirp")
+const { createSitemap } = require("sitemap")
 
-const ensureTrailingSlash = (url) => (url.endsWith('/') ? url : `${url}/`)
+const ensureTrailingSlash = url => (url.endsWith("/") ? url : `${url}/`)
 
-const getPaths = async ({ distPath, exclude = [], cwd = '.' }) => {
+const getPaths = async ({ distPath, exclude = [], cwd = "." }) => {
   const relPath = getRelPath(distPath, cwd)
-  const htmlFiles = relPath === '' ? '**/**.html' : `${relPath}/**/**.html`
-  const excludeFiles = exclude.map((excludedPath) => `!${getRelPath(excludedPath, cwd).replace(/^!/, '')}`)
+  const htmlFiles = relPath === "" ? "**/**.html" : `${relPath}/**/**.html`
+  const excludeFiles = exclude.map(excludedPath => `!${getRelPath(excludedPath, cwd).replace(/^!/, "")}`)
 
   const lookup = [htmlFiles, ...excludeFiles]
   const paths = await globby(lookup, { cwd })
@@ -23,11 +23,11 @@ const getPaths = async ({ distPath, exclude = [], cwd = '.' }) => {
 // Note: this does not apply to `globby` `cwd` option.
 const getRelPath = function (filePath, cwd) {
   const relPath = path.isAbsolute(filePath) ? path.relative(cwd, filePath) : filePath
-  return relPath.replace(/\\/g, '/')
+  return relPath.replace(/\\/g, "/")
 }
 
 const prettifyUrl = ({ url, trailingSlash }) => {
-  const prettyUrl = url.replace(/\/?index\.html$/, '').replace(/\.html$/, '')
+  const prettyUrl = url.replace(/\/?index\.html$/, "").replace(/\.html$/, "")
 
   if (!trailingSlash) {
     return prettyUrl
@@ -48,11 +48,11 @@ const getUrlFromFile = ({ file, distPath, prettyURLs, trailingSlash }) => {
 }
 
 const getUrlsFromPaths = ({ paths, distPath, prettyURLs, trailingSlash, changeFreq, priority, cwd, urlPrefix }) => {
-  const urls = paths.map((file) => {
+  const urls = paths.map(file => {
     const url = getUrlFromFile({ file, distPath, prettyURLs, trailingSlash })
 
     return {
-      url: (urlPrefix ? urlPrefix + url : url).replace('//', '/'),
+      url: (urlPrefix ? urlPrefix + url : url).replace("//", "/"),
       changefreq: changeFreq,
       priority,
       lastmodrealtime: true,
@@ -62,7 +62,7 @@ const getUrlsFromPaths = ({ paths, distPath, prettyURLs, trailingSlash, changeFr
   return urls
 }
 
-const DEFAULT_CHANGE_FREQ = 'weekly'
+const DEFAULT_CHANGE_FREQ = "weekly"
 const DEFAULT_PRIORITY = 0.8
 // 600 sec cache period
 const DEFAULT_CACHE_TIME = 600000
@@ -76,7 +76,7 @@ const createSitemapInfo = async function ({ homepage, urls, failBuild }) {
     const xml = sitemap.toString()
     return { sitemap, xml }
   } catch (error) {
-    return failBuild('Could not generate XML sitemap', { error })
+    return failBuild("Could not generate XML sitemap", { error })
   }
 }
 
@@ -104,7 +104,7 @@ module.exports = async function makeSitemap(opts = {}) {
   const modifiedXml = xml.replace(`<loc>${homepage}/</loc>`, `<loc>${homepage}</loc>`)
 
   // write sitemap to file
-  const sitemapFileName = fileName || 'sitemap.xml'
+  const sitemapFileName = fileName || "sitemap.xml"
   const sitemapFile = path.resolve(distPath, sitemapFileName)
   await mkdirp(path.dirname(sitemapFile))
   // Write sitemap

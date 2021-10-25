@@ -10,7 +10,7 @@ import GenericHero from "../components/GenericHero"
 import PrimaryCTA from "../components/PrimaryCTA"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
 import Features from "../components/Features"
-import {modifySchema} from "../utils/modifySchema"
+// import {modifySchema} from "../utils/modifySchema"
 
 const AboutPage = ({ data: { wpPage } }) => {
   // About Hero Fields :
@@ -24,7 +24,7 @@ const AboutPage = ({ data: { wpPage } }) => {
   // About Team Repeater
   const teamRepeater = wpPage.aboutFields.aboutTeam.aboutImageRepeater
 
-  modifySchema(wpPage.seo.schema.raw, aboutTitle, wpPage.slug)
+  // modifySchema(wpPage.seo.schema.raw, aboutTitle, wpPage.slug)
 
   // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
   const schemaRaw = wpPage.seo.schema.raw.replace(

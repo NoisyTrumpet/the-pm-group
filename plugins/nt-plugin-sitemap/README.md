@@ -65,7 +65,7 @@ package = "@netlify/plugin-sitemap"
 
 ### Pretty URLs
 
-Pretty urls a.k.a. `site.com/index.html` being turned into  `site.com/` is on by default.
+Pretty urls a.k.a. `site.com/index.html` being turned into `site.com/` is on by default.
 
 To disable this feature set the `prettyURLs` option to `false`
 
@@ -102,6 +102,7 @@ package = "@netlify/plugin-sitemap"
   changeFreq = "daily"
   priority = 0.5
 ```
+
 ### Set base URL from environment variable rather than plugin input
 
 You can include an environment variable (`NETLIFY_PLUGIN_SITEMAP_BASEURL`) in your Netlify site to set the base URL that will be used by the plugin. This option is useful if the `baseUrl` plugin input can't be used.
@@ -118,7 +119,7 @@ package = "@netlify/plugin-sitemap"
   baseUrl = "http://example.com"
 ```
 
->  NOTE: Although the above is called base URL this actually ends up being the hostname in the sitemap and as such trying to use a URL like `http://example.com/en/` will results in `http://example.com/`
+> NOTE: Although the above is called base URL this actually ends up being the hostname in the sitemap and as such trying to use a URL like `http://example.com/en/` will results in `http://example.com/`
 
 ### Add a prefix to the URL
 

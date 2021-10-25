@@ -1,7 +1,7 @@
 /* Generates a sitemap */
-const { env } = require('process')
+const { env } = require("process")
 
-const makeSitemap = require('./make_sitemap')
+const makeSitemap = require("./make_sitemap")
 
 const getInputsDir = ({ inputs }) => inputs.dir || inputs.distPath || inputs.buildDir
 
@@ -13,8 +13,8 @@ const getBuildDir = ({ inputs, constants }) => {
     return buildDir
   }
   // remove leading / to treat the dir a a relative one
-  const trimmedBuildDir = buildDir.startsWith('/') ? buildDir.slice(1) : buildDir
-  return trimmedBuildDir || '.'
+  const trimmedBuildDir = buildDir.startsWith("/") ? buildDir.slice(1) : buildDir
+  return trimmedBuildDir || "."
 }
 
 module.exports = {
@@ -23,7 +23,7 @@ module.exports = {
     const urlPrefix = inputs.urlPrefix || env.NETLIFY_PLUGIN_SITEMAP_URL_PREFIX || null
     const buildDir = getBuildDir({ inputs, constants })
 
-    console.log('Creating sitemap from files...')
+    console.log("Creating sitemap from files...")
 
     const data = await makeSitemap({
       fileName: inputs.filePath,
@@ -38,6 +38,6 @@ module.exports = {
       urlPrefix,
     })
 
-    console.log('Sitemap Built!', data.sitemapPath)
+    console.log("Sitemap Built!", data.sitemapPath)
   },
 }
