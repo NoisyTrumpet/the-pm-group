@@ -8,7 +8,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { ChakraProvider } from "@chakra-ui/react"
-import Header from "../../components/Header/header"
+import Header from "Components/Header/header"
 import theme from "../../@chakra-ui/gatsby-plugin/theme"
 import "@fontsource/montserrat/latin-500.css"
 import "@fontsource/montserrat/latin-600.css"

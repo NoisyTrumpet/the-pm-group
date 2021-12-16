@@ -1,11 +1,11 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
-import GenericHero from "../components/GenericHero"
+import GenericHero from "Components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
-import PrimaryCTA from "../components/PrimaryCTA"
-import CompanyItems from "../components/CompanyItems"
+import PrimaryCTA from "Components/PrimaryCTA"
+import CompanyItems from "Components/CompanyItems"
 
 const CompaniesPage = ({ data: { wpPage } }) => {
   // Hero Fields

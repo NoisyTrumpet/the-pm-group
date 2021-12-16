@@ -1,10 +1,10 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
-import GenericHero from "../components/GenericHero"
-import ContactForm from "../components/ContactForm"
+import GenericHero from "Components/GenericHero"
+import ContactForm from "Components/ContactForm"
 
 const ContactUs = ({ data: { wpPage } }) => {
   // Hero component

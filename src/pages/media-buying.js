@@ -1,13 +1,13 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
 
-import TextImageBlock from "../components/TextImageBlock"
-import GenericHero from "../components/GenericHero"
-import AccordionGrid from "../components/AccordionGrid"
-import PrimaryCTA from "../components/PrimaryCTA"
+import TextImageBlock from "Components/TextImageBlock"
+import GenericHero from "Components/GenericHero"
+import AccordionGrid from "Components/AccordionGrid"
+import PrimaryCTA from "Components/PrimaryCTA"
 
 const MediaBuying = ({ data, context }) => {
   // About Page Title

@@ -1,9 +1,9 @@
 import { Box, Container, Grid, Heading } from "@chakra-ui/react"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
-import WorkItem from "../components/WorkItem"
+import WorkItem from "Components/WorkItem"
 import Fade from "react-reveal/Fade"
 
 const Category = ({ data }) => {

@@ -1,15 +1,15 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 import { Text, Box } from "@chakra-ui/react"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
-import GenericHero from "../components/GenericHero"
+import GenericHero from "Components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
-import PrimaryCTA from "../components/PrimaryCTA"
-import TextImageBlock from "../components/TextImageBlock"
-import ClientList from "../components/ClientList"
-import CommunityGrid from "../components/CommunityGrid"
+import PrimaryCTA from "Components/PrimaryCTA"
+import TextImageBlock from "Components/TextImageBlock"
+import ClientList from "Components/ClientList"
+import CommunityGrid from "Components/CommunityGrid"
 
 const CommunityPage = ({ data }) => {
   // Hero Fields:

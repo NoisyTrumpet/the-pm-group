@@ -1,15 +1,15 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import { Text, Box } from "@chakra-ui/layout"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
-import AboutTeamGrid from "../components/AboutTeamGrid"
-import GenericHero from "../components/GenericHero"
-import PrimaryCTA from "../components/PrimaryCTA"
+import AboutTeamGrid from "Components/AboutTeamGrid"
+import GenericHero from "Components/GenericHero"
+import PrimaryCTA from "Components/PrimaryCTA"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
-import Features from "../components/Features"
+import Features from "Components/Features"
 // import {modifySchema} from "../utils/modifySchema"
 
 const AboutPage = ({ data: { wpPage } }) => {

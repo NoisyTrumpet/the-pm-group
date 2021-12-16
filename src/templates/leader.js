@@ -1,9 +1,9 @@
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import React from "react"
-import GenericHero from "../components/GenericHero"
-import Layout from "../components/Layout/Layout"
+import GenericHero from "Components/GenericHero"
+import Layout from "Components/Layout/Layout"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
-import PrimaryCTA from "../components/PrimaryCTA"
+import PrimaryCTA from "Components/PrimaryCTA"
 import { graphql } from "gatsby"
 import { Container, Heading, Box } from "@chakra-ui/react"
 

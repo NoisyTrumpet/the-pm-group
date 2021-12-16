@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { Box, Text, Heading } from "@chakra-ui/layout"

@@ -1,5 +1,4 @@
 import { Box, Container, Text } from "@chakra-ui/layout"
-import { Skeleton } from "@chakra-ui/react"
 import React from "react"
 import PropTypes from "prop-types"
 import Link from "../Link/Link"
@@ -23,9 +22,7 @@ const PrimaryCTA = ({ items, link, ctaText, isLoading }) => {
           minHeight="max-content"
           width="100%"
         >
-          {isLoading ? (
-            <Skeleton />
-          ) : (
+          {items &&
             items.map(item => (
               <Link
                 to={item.link}
@@ -48,10 +45,9 @@ const PrimaryCTA = ({ items, link, ctaText, isLoading }) => {
                   </Text>
                 )}
               </Link>
-            ))
-          )}
+            ))}
         </Box>
-        {/* <Box mt={[8, 8, 8, 0]} ml={15}>
+        {link && ctaText && <Box mt={[8, 8, 8, 0]} ml={15}>
           <Link
             to={link}
             py={3}
@@ -67,7 +63,7 @@ const PrimaryCTA = ({ items, link, ctaText, isLoading }) => {
           >
             {ctaText}
           </Link>
-        </Box> */}
+        </Box>}
       </Container>
     </Box>
   )

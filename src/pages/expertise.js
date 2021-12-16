@@ -1,14 +1,14 @@
 import * as React from "react"
 import { Box, Text } from "@chakra-ui/layout"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
-import CapabilitiesGrid from "../components/CapabilitiesGrid"
-import ClientList from "../components/ClientList"
-import GenericHero from "../components/GenericHero"
-import PrimaryCTA from "../components/PrimaryCTA"
+import CapabilitiesGrid from "Components/CapabilitiesGrid"
+import ClientList from "Components/ClientList"
+import GenericHero from "Components/GenericHero"
+import PrimaryCTA from "Components/PrimaryCTA"
 
 const ExpertisePage = ({ data: { wpPage } }) => {
   // Hero Fields :

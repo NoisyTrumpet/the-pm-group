@@ -2,9 +2,9 @@ import { Container, Box, Heading } from "@chakra-ui/react"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import React from "react"
 import { Breadcrumb } from "gatsby-plugin-breadcrumb"
-import Layout from "../components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
 import "gatsby-plugin-breadcrumb/gatsby-plugin-breadcrumb.css"
-import BlogGrid from "../components/BlogGrid"
+import BlogGrid from "Components/BlogGrid"
 import { graphql } from "gatsby"
 
 const BlogPage = ({ data, pageContext }) => {

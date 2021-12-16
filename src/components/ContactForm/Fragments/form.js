@@ -1,14 +1,11 @@
 import React from "react"
+import { Grid, Box, Text, Flex } from "@chakra-ui/layout"
 import {
-  Text,
-  Box,
   FormControl,
   FormLabel,
   Input,
   Button,
   Textarea,
-  Grid,
-  Flex,
   Checkbox,
 } from "@chakra-ui/react"
 
