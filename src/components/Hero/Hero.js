@@ -1,12 +1,7 @@
+import { Box, Flex, Grid, GridItem, Text, Stack } from "@chakra-ui/layout"
 import {
-  Box,
   Button,
-  Stack,
-  Text,
-  Grid,
-  GridItem,
   useColorModeValue,
-  Flex,
   keyframes,
   IconButton,
 } from "@chakra-ui/react"

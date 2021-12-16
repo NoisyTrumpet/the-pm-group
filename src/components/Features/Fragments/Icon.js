@@ -1,10 +1,10 @@
 import React from "react"
-import TraditionalAdvertising from "../../../SVG/TraditionalAdvertising"
-import EventsPromo from "../../../SVG/EventsPromo"
-import PublicRelations from "../../../SVG/PublicRelations"
-import DigitalMarketing from "../../../SVG/DigitalMarketing"
-import Creative from "../../../SVG/Creative"
-import VideoContent from "../../../SVG/VideoContent"
+import TraditionalAdvertising from "Svg/TraditionalAdvertising"
+import EventsPromo from "Svg/EventsPromo"
+import PublicRelations from "Svg/PublicRelations"
+import DigitalMarketing from "Svg/DigitalMarketing"
+import Creative from "Svg/Creative"
+import VideoContent from "Svg/VideoContent"
 
 const Icon = ({ title }) => {
   if (title === "Traditional Advertising") {

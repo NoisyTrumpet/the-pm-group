@@ -11,7 +11,7 @@ import {
   useColorModeValue,
   IconButton,
 } from "@chakra-ui/react"
-import Logo from "../../../SVG/Logo"
+import Logo from "Svg/Logo"
 import Link from "../../Link/Link"
 import NavLink from "./NavLink"
 import MobileNavContent from "./MobileNavContent"

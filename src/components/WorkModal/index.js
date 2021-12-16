@@ -17,7 +17,7 @@ const WorkModal = ({ title, id, videoLink, isVideo, image, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
-  const videoId = videoLink && videoLink.split("v=")
+  const videoId = videoLink && videoLink.split("v=")[1]
 
   if (isVideo) {
     return (
@@ -60,7 +60,7 @@ const WorkModal = ({ title, id, videoLink, isVideo, image, children }) => {
               <iframe
                 width="100%"
                 height="400px"
-                src={`https://www.youtube.com/embed/${videoId[1]}?&autoplay=1`}
+                src={`https://www.youtube.com/embed/${videoId}?&autoplay=1`}
                 title={title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -2,9 +2,9 @@ import React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
-import { Box, Text, Heading, chakra } from "@chakra-ui/react"
+import { Box, Text, Heading } from "@chakra-ui/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Logo from "../SVG/Logo"
+import Logo from "Svg/Logo"
 
 const NotFoundPage = ({ data }) => {
   const backgroundImage = data.backgroundImage.childImageSharp
@@ -85,16 +85,17 @@ const NotFoundPage = ({ data }) => {
               maxW={{ base: "90%", sm: "80%", md: "60%", lg: "90%" }}
               gridColumnStart={{ base: "1", md: "1", lg: "3" }}
               gridColumnEnd={{ base: "2", md: "3", lg: "4" }}
+              sx={{
+                a: {
+                  transition: "all 0.3s ease-in-out",
+                  _hover: {
+                    color: "white",
+                    textDecoration: "underline",
+                  },
+                },
+              }}
             >
-              <chakra.a
-                href="/"
-                rel="noopener noreferrer"
-                _hover={{
-                  textDecoration: `underline`,
-                  color: `white`,
-                }}
-                transition={`all .3s ease-in-out`}
-              >
+              <a href="/">
                 <Box position={`relative`} display="grid" placeItems="center">
                   <Box
                     style={{ gridArea: "1/1" }}
@@ -126,7 +127,7 @@ const NotFoundPage = ({ data }) => {
                     />
                   )}
                 </Box>
-              </chakra.a>
+              </a>
             </Box>
           </Box>
         </Box>

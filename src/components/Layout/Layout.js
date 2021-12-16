@@ -6,15 +6,13 @@
  */
 
 import * as React from "react"
-//  import Footer from "../Footer/index"
 import { useStaticQuery, graphql } from "gatsby"
-import { ChakraProvider, Box } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
 import Header from "../../components/Header/header"
-import { SkipNavContent, SkipNavLink } from "../SkipNav/index"
 import theme from "../../@chakra-ui/gatsby-plugin/theme"
-import "@fontsource/montserrat/500.css"
-import "@fontsource/montserrat/600.css"
-import "@fontsource/montserrat/700.css"
+import "@fontsource/montserrat/latin-500.css"
+import "@fontsource/montserrat/latin-600.css"
+import "@fontsource/montserrat/latin-700.css"
 import { SEOContext } from "gatsby-plugin-wpgraphql-seo"
 import Footer from "../Footer"
 import "../layout.scss"
@@ -95,16 +93,12 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  // pt={["80.14px", "80.14px", "80.14px", "89.14px", "89.14px"]}
   return (
     <ChakraProvider theme={theme}>
       <SEOContext.Provider value={{ global: seo }}>
-        <SkipNavLink />
         <Header siteTitle={seo.schema.siteName} />
-        <SkipNavContent>
-          <Box pt={["80.14px", "80.14px", "80.14px", "89.14px", "89.14px"]}>
-            {children}
-          </Box>
-        </SkipNavContent>
+        <main>{children}</main>
         <Footer />
       </SEOContext.Provider>
     </ChakraProvider>
