@@ -228,7 +228,7 @@ module.exports = {
           Hooks: "src/hooks",
           Pages: "src/pages",
           Styles: "src/styles",
-          Svg: "static/svg",
+          Svg: "static/SVG",
           Utils: "src/utils",
           Static: "static",
         },
