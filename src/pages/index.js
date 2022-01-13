@@ -4,15 +4,14 @@ import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import Hero from "../components/Hero/Hero"
-// Loadable Components:
-import loadable from "@loadable/component"
+
 import PrimaryCTA from "../components/PrimaryCTA"
 import TextImageBlock from "../components/TextImageBlock"
 // Loadable Components:
-const Features = loadable(() => import("../components/Features"))
-const ParallaxCTA = loadable(() => import("../components/ParallaxCTA"))
-const ContactForm = loadable(() => import("../components/ContactForm"))
-const CompaniesGrid = loadable(() => import("../components/CompaniesGrid"))
+const Features = React.lazy(() => import("../components/Features"))
+const ParallaxCTA = React.lazy(() => import("../components/ParallaxCTA"))
+const ContactForm = React.lazy(() => import("../components/ContactForm"))
+const CompaniesGrid = React.lazy(() => import("../components/CompaniesGrid"))
 
 // import Features from "../components/Features"
 // import ParallaxCTA from "../components/ParallaxCTA"
@@ -72,16 +71,40 @@ const IndexPage = ({ data: { wpPage } }) => {
         image={aboutImage}
         isSmall
       />
-      <Features features={services} />
-      <ParallaxCTA text={secondaryCTAText} image={secondaryCTAImage} />
+      <React.Suspense
+        fallback={
+          <div style={{ width: "100%", display: "block" }}>Loading...</div>
+        }
+      >
+        <Features features={services} />
+      </React.Suspense>
+      <React.Suspense
+        fallback={
+          <div style={{ width: "100%", display: "block" }}>Loading...</div>
+        }
+      >
+        <ParallaxCTA text={secondaryCTAText} image={secondaryCTAImage} />
+      </React.Suspense>
       <TextImageBlock
         title={gotHereTitle}
         content={gotHereText}
         image={gotHereImage}
         isSmall
       />
-      <ContactForm contactData={contactInfo} />
-      <CompaniesGrid companies={companies} />
+      <React.Suspense
+        fallback={
+          <div style={{ width: "100%", display: "block" }}>Loading...</div>
+        }
+      >
+        <ContactForm contactData={contactInfo} />
+      </React.Suspense>
+      <React.Suspense
+        fallback={
+          <div style={{ width: "100%", display: "block" }}>Loading...</div>
+        }
+      >
+        <CompaniesGrid companies={companies} />
+      </React.Suspense>
     </Layout>
   )
 }
