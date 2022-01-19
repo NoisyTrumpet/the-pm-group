@@ -166,7 +166,7 @@ exports.createResolvers = async ({ createResolvers, schema }) =>
                 },
                 limit: 3,
               },
-              type: 'WpPost',
+              type: "WpPost",
             })
             return { nodes: Array.from(entries) }
           } else return { nodes: [] }

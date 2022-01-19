@@ -6,9 +6,9 @@ import Seo from "gatsby-plugin-wpgraphql-seo"
 import Hero from "../components/Hero/Hero"
 // Loadable Components:
 import loadable from "@loadable/component"
-import PrimaryCTA from "../components/PrimaryCTA"
 import TextImageBlock from "../components/TextImageBlock"
 // Loadable Components:
+const PrimaryCTA = loadable(() => import("../components/PrimaryCTA"))
 const Features = loadable(() => import("../components/Features"))
 const ParallaxCTA = loadable(() => import("../components/ParallaxCTA"))
 const ContactForm = loadable(() => import("../components/ContactForm"))
