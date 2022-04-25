@@ -94,7 +94,7 @@ module.exports = {
         //   },
         // },
         html: {
-          useGatsbyImage: true,
+          useGatsbyImage: false,
         },
         production: {
           hardCacheMediaFiles: true,
