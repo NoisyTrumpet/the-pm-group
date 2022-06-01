@@ -15,10 +15,9 @@ exports.proxyRequest = async function (event) {
 
   const url = new URL(event.path, `http://localhost:${port}`)
 
-  Object.entries(
-    event.multiValueQueryStringParameters
-  ).forEach(([name, values]) =>
-    values.forEach(value => url.searchParams.append(name, value))
+  Object.entries(event.multiValueQueryStringParameters).forEach(
+    ([name, values]) =>
+      values.forEach(value => url.searchParams.append(name, value))
   )
 
   const headers = new Headers()

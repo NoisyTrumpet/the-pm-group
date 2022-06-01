@@ -40,9 +40,8 @@ const LeadershipTemplate = ({ data }) => {
       name: title,
     }
     // Destructure Object Instead of using delete
-    const { name: newName, ...breadcrumbListRest1 } = breadcrumbList[
-      "itemListElement"
-    ][1]
+    const { name: newName, ...breadcrumbListRest1 } =
+      breadcrumbList["itemListElement"][1]
     // Set Destructured Object as equal to what we're trying to change
     breadcrumbList["itemListElement"][1] = breadcrumbListRest1
     // Delete last item in breadCrumbList Until we refactor leadership pages
