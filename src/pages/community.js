@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { Text, Box } from "@chakra-ui/react"
-
+import { updateSchema } from '../utils'
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import GenericHero from "../components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
@@ -28,33 +28,22 @@ const CommunityPage = ({ data }) => {
   const communityImages = data.wpPage.communityFields?.imageGrid.gridImages
 
   if (data.wpPage.seo) {
-    // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
-    const schemaRaw = data.wpPage.seo.schema.raw.replace(
-      /"\/"/g,
-      '"https://thepmgrp.com/"'
-    )
-    // Initalize schema object
-    const schemaObj = JSON.parse(schemaRaw)
-    // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][3]
-    // breadcrumbList["@context"] = "https://schema.org"
-    delete breadcrumbList["@id"]
-    // Home
-    breadcrumbList["itemListElement"][0].item = {
-      "@id": `${breadcrumbList["itemListElement"][0].item}`,
-      name: "Home",
-    }
-    delete breadcrumbList["itemListElement"][0].name
-    // About
-    breadcrumbList["itemListElement"][1].item = {
-      "@id": `https://thepmgrp.com/${data.wpPage.slug}/`,
-      name: data.wpPage.title,
-    }
-    delete breadcrumbList["itemListElement"][1].name
+    const { seo, title, slug } = data?.wpPage
+    const updatedSchema = updateSchema(seo, [
+      {
+        title: 'Home',
+        href: 'https://thepmgrp.com/',
+      },
+      {
+        title: title,
+        href: `https://thepmgrp.com/${slug}/`,
+      },
+    ])
 
-    data.wpPage.seo.schema.raw = JSON.stringify(schemaObj)
-    data.wpPage.seo.metaRobotsNoindex = "index"
-    data.wpPage.seo.metaRobotsNofollow = "follow"
+    seo.schema.raw = updatedSchema
+
+    seo.metaRobotsNoindex = 'index'
+    seo.metaRobotsNofollow = 'follow'
   }
 
   return (
