@@ -1,3 +1,4 @@
+// import fetch from "node-fetch"
 /**
  * Implement Gatsby's Node APIs in this file.
  *

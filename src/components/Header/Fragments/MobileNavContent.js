@@ -17,7 +17,7 @@ const MobileNavContent = props => {
       zIndex={25}
       px={4}
       py={4}
-      d={isOpen ? "block" : "none"}
+      display={isOpen ? "block" : "none"}
     >
       {children}
       <CloseButton
