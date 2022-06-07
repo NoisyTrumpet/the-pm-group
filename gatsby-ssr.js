@@ -7,14 +7,14 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       key="dns-prefetch-google-tag-manager"
       href="https://www.googletagmanager.com"
       as="script"
-      crossorigin
+      crossOrigin="anonymous"
     />,
     <link
       rel="preconnect"
       key="dns-prefetch-connect-facebook"
       href="https://connect.facebook.net"
       as="script"
-      crossorigin
+      crossOrigin="anonymous"
     />,
     <link
       rel="preload"
@@ -22,7 +22,7 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       href="/static/montserrat-latin-500-normal-730131c0fbe55c1ba2828ac133d40a44.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
     />,
     <link
       rel="preload"
@@ -30,7 +30,7 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       href="/static/montserrat-latin-700-normal-6077783c63fa414406e1ddbc1e62388b.woff2"
       as="font"
       type="font/woff2"
-      crossorigin
+      crossOrigin="anonymous"
     />,
 
     <script

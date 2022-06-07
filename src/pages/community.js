@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { Text, Box } from "@chakra-ui/react"
-import { updateSchema } from '../utils'
+import { updateSchema } from "../utils"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import GenericHero from "../components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
@@ -31,8 +31,8 @@ const CommunityPage = ({ data }) => {
     const { seo, title, slug } = data?.wpPage
     const updatedSchema = updateSchema(seo, [
       {
-        title: 'Home',
-        href: 'https://thepmgrp.com/',
+        title: "Home",
+        href: "https://thepmgrp.com/",
       },
       {
         title: title,
@@ -42,8 +42,8 @@ const CommunityPage = ({ data }) => {
 
     seo.schema.raw = updatedSchema
 
-    seo.metaRobotsNoindex = 'index'
-    seo.metaRobotsNofollow = 'follow'
+    seo.metaRobotsNoindex = "index"
+    seo.metaRobotsNofollow = "follow"
   }
 
   return (
