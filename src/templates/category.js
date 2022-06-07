@@ -8,9 +8,18 @@ import Fade from "react-reveal/Fade"
 
 const Category = ({ data }) => {
   // SEO & Data Object
-  const { seo, name, description, customSchema: schema, slug } = data.wpCategory
+  const {
+    seo,
+    name,
+    description,
+    customSchema: schema,
+    slug,
+    workCategoryFields,
+  } = data.wpCategory
+  // Work Items from ACF Field
+  const { workItems: works } = workCategoryFields
 
-  const { nodes: works } = data.allWpWork
+  // const { nodes: works } = data.allWpWork
   if (seo) {
     // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
     const schemaRaw = seo.schema.raw.replace(/"\/"/g, '"https://thepmgrp.com/"')
@@ -43,6 +52,7 @@ const Category = ({ data }) => {
     seo.metaRobotsNoindex = "index"
     seo.metaRobotsNofollow = "follow"
   }
+  console.log(works)
 
   return (
     <Layout>
@@ -70,9 +80,6 @@ const Category = ({ data }) => {
               dangerouslySetInnerHTML={{ __html: description }}
               sx={{ a: { color: "secondary", fontWeight: "bold" } }}
             />
-            // <Text textAlign="center" maxWidth={[700]} py={4}>
-            //   {description}
-            // </Text>
           )}
         </Box>
         <Box>
@@ -85,25 +92,27 @@ const Category = ({ data }) => {
             py={8}
             gap={3}
           >
-            {works.map(item => (
-              <Fade bottom key={item.id}>
-                <WorkItem
-                  title={item.title}
-                  type={item.videoFields.videoLink ? "Television" : name}
-                  image={
-                    item.theWorkImage?.photoLink?.localFile?.childImageSharp ||
-                    item.videoFields.videoCoverImage?.localFile
-                      .childImageSharp ||
-                    item.featuredImage?.node?.localFile?.childImageSharp
-                  }
-                  media={
-                    item.videoFields.videoLink ||
-                    item.workAudio.radioClip?.link ||
-                    ""
-                  }
-                />
-              </Fade>
-            ))}
+            {works &&
+              works.map(item => (
+                <Fade bottom key={item.id}>
+                  <WorkItem
+                    title={item.title}
+                    type={item.videoFields.videoLink ? "Television" : name}
+                    image={
+                      item.theWorkImage?.photoLink?.localFile
+                        ?.childImageSharp ||
+                      item.videoFields.videoCoverImage?.localFile
+                        .childImageSharp ||
+                      item.featuredImage?.node?.localFile?.childImageSharp
+                    }
+                    media={
+                      item.videoFields.videoLink ||
+                      item.workAudio.radioClip?.link ||
+                      ""
+                    }
+                  />
+                </Fade>
+              ))}
           </Grid>
         </Box>
       </Container>
@@ -121,63 +130,71 @@ export const categoryQuery = graphql`
     ) {
       nodes {
         id
-        menuOrder
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 90
-                  placeholder: NONE
-                  layout: CONSTRAINED
-                  formats: [WEBP, PNG]
-                )
-              }
-            }
-          }
-        }
-        videoFields {
-          videoLink
-          videoDescription
-          videoCoverImage {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 90
-                  placeholder: NONE
-                  layout: CONSTRAINED
-                  formats: [WEBP, PNG]
-                )
-              }
-            }
-          }
-        }
-        workAudio {
-          radioClip {
-            link
-          }
-        }
-        title
-        theWorkImage {
-          photoLink {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 90
-                  layout: CONSTRAINED
-                  formats: [WEBP, PNG]
-                  placeholder: NONE
-                )
-              }
-            }
-          }
-        }
       }
     }
     wpCategory(slug: { eq: $slug }) {
       description
       name
       slug
+      workCategoryFields {
+        workItems {
+          ... on WpWork {
+            title
+            id
+            menuOrder
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 90
+                      placeholder: NONE
+                      layout: CONSTRAINED
+                      formats: [WEBP, PNG]
+                    )
+                  }
+                }
+              }
+            }
+            videoFields {
+              videoLink
+              videoDescription
+              videoCoverImage {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 90
+                      placeholder: NONE
+                      layout: CONSTRAINED
+                      formats: [WEBP, PNG]
+                    )
+                  }
+                }
+              }
+            }
+            workAudio {
+              radioClip {
+                link
+              }
+            }
+            title
+            theWorkImage {
+              photoLink {
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      quality: 90
+                      layout: CONSTRAINED
+                      formats: [WEBP, PNG]
+                      placeholder: NONE
+                    )
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       seo {
         title
         metaDesc
