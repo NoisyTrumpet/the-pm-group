@@ -52,7 +52,6 @@ const Category = ({ data }) => {
     seo.metaRobotsNoindex = "index"
     seo.metaRobotsNofollow = "follow"
   }
-  console.log(works)
 
   return (
     <Layout>
