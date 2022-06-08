@@ -1,6 +1,7 @@
 const React = require("react")
 const { Script } = require(`gatsby`)
 const Layout = require("./src/components/Layout/Layout").default
+const ReactDOM = require('react-dom/client')
 
 exports.wrapPageElement = ({ element, props }) => {
   return (
@@ -58,4 +59,12 @@ exports.wrapPageElement = ({ element, props }) => {
       <Layout {...props}>{element}</Layout>
     </>
   )
+}
+
+
+
+exports.replaceHydrateFunction = () => {
+  return (element, container) => {
+    ReactDOM.createRoot(container, {}).render(element)
+  }
 }
