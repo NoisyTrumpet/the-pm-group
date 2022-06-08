@@ -9,6 +9,9 @@ module.exports = {
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
+  // partytownProxiedURLs: [
+  //   `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
+  // ],
   plugins: [
     "@chakra-ui/gatsby-plugin",
     `gatsby-plugin-react-helmet`,

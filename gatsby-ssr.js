@@ -1,4 +1,18 @@
 import React from "react"
+import { Script } from "gatsby"
+
+const resolveUrl = url => {
+  if (
+    url.hostname === "www.google-analytics.com" ||
+    url.hostname === "connect.facebook.net" ||
+    url.hostname === "analytics.tiktok.com"
+  ) {
+    var proxyUrl = new URL(`https://coop-atm.mygenfcu.workers.dev/?${url.href}`)
+    // proxyUrl.searchParams.append('', )
+    return proxyUrl
+  }
+  return url
+}
 
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents([
@@ -19,7 +33,7 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     <link
       rel="preload"
       key="preload-montserrat-latin-500"
-      href="/static/montserrat-latin-500-normal-730131c0fbe55c1ba2828ac133d40a44.woff2"
+      href="/static/montserrat-latin-500-normal-f41a91ec0ef285c804abfbf08972d7de.woff2"
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
@@ -27,20 +41,43 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
     <link
       rel="preload"
       key="preload-montserrat-latin-700"
-      href="/static/montserrat-latin-700-normal-6077783c63fa414406e1ddbc1e62388b.woff2"
+      href="/static/montserrat-latin-700-normal-145c46aabb2eccdd1f7bfb2983b6d5e4.woff2"
       as="font"
       type="font/woff2"
       crossOrigin="anonymous"
     />,
 
+    // <Script
+    //   key="google-tag-manager-head"
+    //   id={`google-tag-manager-head`}
+    //   strategy="off-main-thread"
+    //   forward={[`gtag`]}
+    //   dangerouslySetInnerHTML={{
+    //     __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //     })(window,document,'script','dataLayer','${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}');`,
+    //   }}
+    // />,
+    <Script
+    id="google-tag-manager-head"
+      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`}
+      strategy="off-main-thread"
+      forward={[`gtag`]}
+    />,
+    <Script id="gtag-config" strategy="off-main-thread">
+      {`
+    window.dataLayer = window.dataLayer || []
+    window.gtag = function gtag() { window.dataLayer.push(arguments) }
+    gtag('js', new Date())
+    gtag('config', ${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}, { send_page_view: false })
+  `}
+    </Script>,
     <script
-      key="google-tag-manager-head"
+      key="test"
       dangerouslySetInnerHTML={{
-        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}');`,
+        __html: `partytown = { debug: true, resolveUrl: ${resolveUrl} }`,
       }}
     />,
   ]),
@@ -53,3 +90,4 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       />,
     ])
 }
+// Create action to rewrite requests from /__third-party-proxy?url=${YOUR_URL} to YOUR_URL with a 200 status code.
