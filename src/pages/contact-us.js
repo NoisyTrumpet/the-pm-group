@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
@@ -47,11 +46,11 @@ const ContactUs = ({ data: { wpPage } }) => {
   }
 
   return (
-    <Layout>
+    <>
       {wpPage.seo && <Seo post={wpPage} />}
       <GenericHero title={heroTitle} image={heroImage} />
       <ContactForm contactData={contact} isContactPage />
-    </Layout>
+    </>
   )
 }
 

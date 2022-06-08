@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
@@ -64,7 +63,7 @@ const MediaBuying = ({ data, context }) => {
   }
 
   return (
-    <Layout>
+    <>
       {data.wpPage.seo && <Seo post={data.wpPage} />}
       <GenericHero title={aboutPageTitle} image={aboutPageHeroImage} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
@@ -81,7 +80,7 @@ const MediaBuying = ({ data, context }) => {
         content={accordionContent}
         image={accordionImage}
       />
-    </Layout>
+    </>
   )
 }
 export default MediaBuying

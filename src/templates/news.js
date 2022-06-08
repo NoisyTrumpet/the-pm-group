@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql, navigate } from "gatsby"
 import GenericHero from "../components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
@@ -55,7 +54,7 @@ const NewsWire = ({ data, pageContext }) => {
   }
 
   return (
-    <Layout>
+    <>
       {data?.wpPage.seo && <Seo post={data?.wpPage} />}
       <GenericHero title={heroTitle} image={heroImage} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
@@ -185,7 +184,7 @@ const NewsWire = ({ data, pageContext }) => {
           </Link>
         )} */}
       </Container>
-    </Layout>
+    </>
   )
 }
 

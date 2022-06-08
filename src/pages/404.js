@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { Box, Text, Heading, chakra } from "@chakra-ui/react"
@@ -12,7 +11,7 @@ const NotFoundPage = ({ data }) => {
   const arrowImage = data.arrowImage.childImageSharp
 
   return (
-    <Layout>
+    <>
       <Seo title="404: Not found" />
       <Box position={`relative`} display="grid" placeItems="center">
         <Box style={{ gridArea: "1/1" }} zIndex={4} pt={4} pb={8}>
@@ -143,7 +142,7 @@ const NotFoundPage = ({ data }) => {
           />
         )}
       </Box>
-    </Layout>
+    </>
   )
 }
 

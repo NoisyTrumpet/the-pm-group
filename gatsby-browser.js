@@ -1,48 +1,61 @@
-// export const onInitialClientRender = () => {
-//   // wait to init GTM until after React has hydrated in this lifecycle
-//   const dataLayer = window.dataLayer || []
-//   dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
-// }
+const React = require("react")
+const { Script } = require(`gatsby`)
+const Layout = require("./src/components/Layout/Layout").default
 
-// function initGTM() {
-//   if (window.isGTMLoaded) {
-//     return false
-//   }
-
-//   window.isGTMLoaded = true
-
-//   const script = document.createElement("script")
-
-//   script.type = "text/javascript"
-//   script.async = true
-//   script.src = `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`
-
-//   script.onload = () => {
-//     const dataLayer = window.dataLayer || []
-//     function gtag() {
-//       dataLayer.push(arguments)
-//     }
-//     gtag("js", new Date())
-
-//     gtag("config", `${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`)
-//   }
-
-//   document.head.appendChild(script)
-// }
-
-// function loadGTM(event) {
-//   initGTM()
-//   event.currentTarget.removeEventListener(event.type, loadGTM)
-// }
-
-// exports.onClientEntry = () => {
-//   document.onreadystatechange = () => {
-//     if (document.readyState !== "loading") {
-//       setTimeout(initGTM, 3500)
-//     }
-//   }
-
-//   document.addEventListener("scroll", loadGTM)
-//   document.addEventListener("mousemove", loadGTM)
-//   document.addEventListener("touchstart", loadGTM)
-// }
+exports.wrapPageElement = ({ element, props }) => {
+  return (
+    <>
+      <link
+        rel="preconnect"
+        key="dns-prefetch-google-tag-manager"
+        href="https://www.googletagmanager.com"
+        as="script"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preconnect"
+        key="dns-prefetch-connect-facebook"
+        href="https://connect.facebook.net"
+        as="script"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        key="preload-montserrat-latin-500"
+        href="/static/montserrat-latin-500-normal-f41a91ec0ef285c804abfbf08972d7de.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <link
+        rel="preload"
+        key="preload-montserrat-latin-700"
+        href="/static/montserrat-latin-700-normal-145c46aabb2eccdd1f7bfb2983b6d5e4.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+      <Script
+        id="google-tag-manager-head"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`}
+        strategy="off-main-thread"
+        forward={[`gtag`]}
+      />
+      <Script id="gtag-config" strategy="off-main-thread">
+        {`
+    window.dataLayer = window.dataLayer || []
+    window.gtag = function gtag() { window.dataLayer.push(arguments) }
+    gtag('js', new Date())
+    gtag('config', ${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}, { send_page_view: false })
+  `}
+      </Script>
+      <script
+        key="test"
+        dangerouslySetInnerHTML={{
+          __html: `partytown = { debug: true }`,
+        }}
+      />
+      <Layout {...props}>{element}</Layout>
+    </>
+  )
+}

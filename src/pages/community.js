@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import { Text, Box } from "@chakra-ui/react"
 import { updateSchema } from "../utils"
@@ -47,7 +46,7 @@ const CommunityPage = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       {data.wpPage.seo && <Seo post={data.wpPage} />}
       <GenericHero title={heroTitle} image={heroImage} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
@@ -77,7 +76,7 @@ const CommunityPage = ({ data }) => {
         </Box>
       </Box>
       <ClientList clients={charities} />
-    </Layout>
+    </>
   )
 }
 

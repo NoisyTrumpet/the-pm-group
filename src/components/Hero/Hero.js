@@ -151,7 +151,9 @@ const Hero = ({ title, caption, slides }) => {
                       minH="242px"
                     >
                       <GatsbyImage
-                        image={getImage(slide?.image?.localFile?.childImageSharp)}
+                        image={getImage(
+                          slide?.image?.localFile?.childImageSharp
+                        )}
                         style={{
                           maxWidth: "100%",
                           borderRadius: "10px!important",
