@@ -2,8 +2,6 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-
-
 module.exports = {
   siteMetadata: {
     title: `The PM Group | San Antonio’s Largest Ad and Marketing Agency`,
@@ -11,10 +9,10 @@ module.exports = {
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
-  proxy: {
-    prefix: `/__third-party-proxy?url=*`,
-    url: `https://coop-atm.mygenfcu.workers.dev/?*`
-  },
+  // proxy: {
+  //   prefix: `/__third-party-proxy?url=*`,
+  //   url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
+  // },
   partytownProxiedURLs: [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
   ],
