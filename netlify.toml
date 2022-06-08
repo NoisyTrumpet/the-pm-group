@@ -104,3 +104,7 @@
 [[redirects]]
   from = "/agency-news/*"
   to = "/news/:splat/"
+[[redirects]]
+    from =  "/__third-party-proxy?url=*"
+    to =  "https://coop-atm.mygenfcu.workers.dev/?*"
+    status  =  200

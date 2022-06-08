@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   createRedirect({
     fromPath: `/__third-party-proxy?url=*`,
     toPath: `https://coop-atm.mygenfcu.workers.dev/?*`,
+    statusCode: 200,
   })
   return new Promise((resolve, reject) => {
     graphql(
