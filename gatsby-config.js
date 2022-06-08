@@ -2,12 +2,18 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+
+
 module.exports = {
   siteMetadata: {
     title: `The PM Group | San Antonio’s Largest Ad and Marketing Agency`,
     description: `The PM Group is San Antonio's top advertising & marketing agency, leading in award-winning and results-driven campaigns with over 30 years of expertise.`,
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
+  },
+  proxy: {
+    prefix: `/__third-party-proxy?url=*`,
+    url: `https://coop-atm.mygenfcu.workers.dev/?*`
   },
   partytownProxiedURLs: [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
