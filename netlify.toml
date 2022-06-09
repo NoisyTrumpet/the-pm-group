@@ -106,8 +106,8 @@
 [[redirects]]
   from = "/agency-news/*"
   to = "/news/:splat/"
-# [[redirects]]
-#   from = "/__third-party-proxy?url=*"
-#   to = "https:coop-atm.mygenfcu.workers.dev/?:splat"
-#   status = 200
-#   force = true
+[[redirects]]
+  from = "/__third-party-proxy?url=*"
+  to = "https://www.coop-atm.mygenfcu.workers.dev/?:splat"
+  status = 200
+  force = true

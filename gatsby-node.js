@@ -12,12 +12,12 @@ const { createFilePath } = require("gatsby-source-filesystem")
 const fetch = require("node-fetch")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage, createRedirect } = actions
-  createRedirect({
-    fromPath: `/__third-party-proxy?url=*`,
-    toPath: `https:coop-atm.mygenfcu.workers.dev/?:splat`,
-    statusCode: 200,
-  })
+  const { createPage } = actions
+  // createRedirect({
+  //   fromPath: `/__third-party-proxy?url=*`,
+  //   toPath: `https:coop-atm.mygenfcu.workers.dev/?:splat`,
+  //   statusCode: 200,
+  // })
   return new Promise((resolve, reject) => {
     graphql(
       `
