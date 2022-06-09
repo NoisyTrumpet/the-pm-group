@@ -9,12 +9,13 @@ module.exports = {
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
-  // proxy: {
-  //   prefix: `/__third-party-proxy?url=*`,
-  //   url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
-  // },
+  proxy: {
+    prefix: `/__third-party-proxy?url=*`,
+    url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
+  },
   partytownProxiedURLs: [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
+    `https://www.google-analytics.com/analytics.js`,
   ],
   plugins: [
     "@chakra-ui/gatsby-plugin",

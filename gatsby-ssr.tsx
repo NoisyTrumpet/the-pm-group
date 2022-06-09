@@ -3,6 +3,20 @@ import type { GatsbySSR } from "gatsby"
 
 export { wrapPageElement, wrapRootElement } from "./gatsby-shared"
 
+
+const resolveUrl = url => {
+  if (
+    url.hostname === 'www.google-analytics.com' ||
+    url.hostname === 'connect.facebook.net' ||
+    url.hostname === 'analytics.tiktok.com'
+  ) {
+    var proxyUrl = new URL(`https://coop-atm.mygenfcu.workers.dev/?${url.href}`)
+    // proxyUrl.searchParams.append('', )
+    return proxyUrl
+  }
+  return url
+}
+
 export const onRenderBody: GatsbySSR[`onRenderBody`] = ({
   setHeadComponents,
 }): void => {
@@ -15,7 +29,8 @@ export const onRenderBody: GatsbySSR[`onRenderBody`] = ({
       key="debug"
       dangerouslySetInnerHTML={{
         __html: `partytown = {
-          debug: false
+          debug: false,
+          resolveUrl: ${resolveUrl}
         }`,
       }}
     />,
