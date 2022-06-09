@@ -6,12 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `The PM Group | San Antonio’s Largest Ad and Marketing Agency`,
     description: `The PM Group is San Antonio's top advertising & marketing agency, leading in award-winning and results-driven campaigns with over 30 years of expertise.`,
-    author: {
-      name: "NoisyTrumpet",
-      email: "web.dev@noisytrumpet.com",
-      url: "https://github.com/NoisyTrumpet",
-      avatar_url: "https://avatars.githubusercontent.com/u/38053181?s=200&v=4"
-    },
+    author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
   // proxy: {
