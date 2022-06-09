@@ -1,1 +1,5 @@
-export { wrapPageElement, wrapRootElement, replaceHydrateFunction } from "./gatsby-shared"
+export {
+  wrapPageElement,
+  wrapRootElement,
+  replaceHydrateFunction,
+} from "./gatsby-shared"

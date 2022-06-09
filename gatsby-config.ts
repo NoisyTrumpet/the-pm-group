@@ -16,6 +16,8 @@ module.exports = {
   partytownProxiedURLs: [
     `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
     `https://www.google-analytics.com/analytics.js`,
+    `https://www.google-analytics.com`,
+
   ],
   plugins: [
     "@chakra-ui/gatsby-plugin",
@@ -226,11 +228,11 @@ module.exports = {
       resolve: `gatsby-plugin-gatsby-cloud`, // `gatsby-plugin-gatsby-cloud`
       options: {
         allPageHeaders: [
-          'Strict-Transport-Security: max-age=31536000; includeSubDomains; preload',
+          "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
         ],
         headers: {
-          '/*': ['Cache-Control: public, max-age=31536000, immutable'],
-          'static/*': ['Cache-Control: public, max-age=31536000, immutable'],
+          "/*": ["Cache-Control: public, max-age=31536000, immutable"],
+          "static/*": ["Cache-Control: public, max-age=31536000, immutable"],
         },
       },
     },

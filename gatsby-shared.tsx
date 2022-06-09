@@ -27,20 +27,6 @@ export const wrapPageElement:
   `}
     </Script>
     <link
-      rel="preconnect"
-      key="dns-prefetch-google-tag-manager"
-      href="https://www.googletagmanager.com"
-      as="script"
-      crossOrigin="anonymous"
-    />
-    <link
-      rel="preconnect"
-      key="dns-prefetch-connect-facebook"
-      href="https://connect.facebook.net"
-      as="script"
-      crossOrigin="anonymous"
-    />
-    <link
       rel="preload"
       key="preload-montserrat-latin-500"
       href="/static/montserrat-latin-500-normal-f41a91ec0ef285c804abfbf08972d7de.woff2"
@@ -56,12 +42,6 @@ export const wrapPageElement:
       type="font/woff2"
       crossOrigin="anonymous"
     />
-    <script
-      key="test"
-      dangerouslySetInnerHTML={{
-        __html: `partytown = { debug: true }`,
-      }}
-    />
     <Layout {...props}>{element}</Layout>
   </>
 )
@@ -76,7 +56,7 @@ export const wrapRootElement:
 )
 
 export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        ReactDOM.createRoot(container, {}).render(element)
-    }
+  return (element, container) => {
+    ReactDOM.createRoot(container, {}).render(element)
+  }
 }
