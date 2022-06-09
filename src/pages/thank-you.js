@@ -1,5 +1,4 @@
 import React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import { Box } from "@chakra-ui/react"
@@ -43,7 +42,7 @@ const ThankYouPage = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       {data.wpPage.seo && <Seo post={data?.wpPage} />}
       <Box position={`relative`} display="grid" placeItems="center">
         <Box style={{ gridArea: "1/1" }} zIndex={4}>
@@ -82,7 +81,7 @@ const ThankYouPage = ({ data }) => {
           />
         )}
       </Box>
-    </Layout>
+    </>
   )
 }
 

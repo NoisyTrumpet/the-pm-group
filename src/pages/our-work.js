@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import GenericHero from "../components/GenericHero"
@@ -47,12 +46,12 @@ const OurWorkPage = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       {data.wpPage.seo && <Seo post={data.wpPage} />}
       <GenericHero title={heroTitle} image={heroImage} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
       <WorkGrid items={workItems} />
-    </Layout>
+    </>
   )
 }
 

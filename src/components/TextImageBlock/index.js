@@ -41,6 +41,7 @@ const TextImageBlock = ({ title, content, image, isSmall, isLeft }) => {
             image={sideImage}
             alt={title}
             objectFit="cover"
+            loading="eager"
             objectPosition={isLeft && "left"}
             style={{
               gridArea: "1/1",

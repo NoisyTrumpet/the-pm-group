@@ -1,7 +1,6 @@
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import React from "react"
 import GenericHero from "../components/GenericHero"
-import Layout from "../components/Layout/Layout"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
 import PrimaryCTA from "../components/PrimaryCTA"
 import { graphql } from "gatsby"
@@ -52,7 +51,7 @@ const LeadershipTemplate = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       {seo && <Seo post={{ seo }} />}
       <GenericHero title={title} image={heroPic.localFile.childImageSharp} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
@@ -69,7 +68,7 @@ const LeadershipTemplate = ({ data }) => {
         )}
         {bio && <Box my={4} dangerouslySetInnerHTML={{ __html: bio }} />}
       </Container>
-    </Layout>
+    </>
   )
 }
 

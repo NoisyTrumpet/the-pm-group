@@ -1,7 +1,6 @@
 import { Box, Container, Grid, Heading } from "@chakra-ui/react"
 import Seo from "gatsby-plugin-wpgraphql-seo"
 import React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 import WorkItem from "../components/WorkItem"
 import Fade from "react-reveal/Fade"
@@ -54,7 +53,7 @@ const Category = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       {seo && <Seo post={{ seo }} />}
       {schema.customSchema && (
         <div dangerouslySetInnerHTML={{ __html: schema.customSchema }} />
@@ -115,7 +114,7 @@ const Category = ({ data }) => {
           </Grid>
         </Box>
       </Container>
-    </Layout>
+    </>
   )
 }
 

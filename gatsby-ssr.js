@@ -1,40 +1,36 @@
 import React from "react"
+import { Partytown } from '@builder.io/partytown/react'
+export { wrapPageElement, wrapRootElement } from "./gatsby-shared"
 
-export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
+const resolveUrl = url => {
+  if (
+    url.hostname === 'www.google-analytics.com' ||
+    url.hostname === 'connect.facebook.net' ||
+    url.hostname === 'analytics.tiktok.com'
+  ) {
+    var proxyUrl = new URL(`https://coop-atm.mygenfcu.workers.dev/?${url.href}`)
+    // proxyUrl.searchParams.append('', )
+    return proxyUrl
+  }
+  return url
+}
+
+
+
+export const onRenderBody = ({
+  setHeadComponents,
+  setPreBodyComponents
+}) => {
   setHeadComponents([
-    <link
-      rel="preconnect"
-      key="dns-prefetch-google-tag-manager"
-      href="https://www.googletagmanager.com"
-      as="script"
-      crossOrigin="anonymous"
+    <Partytown
+      key="partytown"
+      debug={false}
+      forward={['dataLayer.push', 'fbq', 'ttq.load', 'ttq.page', 'ttq.track']}
+      resolveUrl={resolveUrl}
     />,
-    <link
-      rel="preconnect"
-      key="dns-prefetch-connect-facebook"
-      href="https://connect.facebook.net"
-      as="script"
-      crossOrigin="anonymous"
-    />,
-    <link
-      rel="preload"
-      key="preload-montserrat-latin-500"
-      href="/static/montserrat-latin-500-normal-730131c0fbe55c1ba2828ac133d40a44.woff2"
-      as="font"
-      type="font/woff2"
-      crossOrigin="anonymous"
-    />,
-    <link
-      rel="preload"
-      key="preload-montserrat-latin-700"
-      href="/static/montserrat-latin-700-normal-6077783c63fa414406e1ddbc1e62388b.woff2"
-      as="font"
-      type="font/woff2"
-      crossOrigin="anonymous"
-    />,
-
     <script
       key="google-tag-manager-head"
+      type="text/partytown"
       dangerouslySetInnerHTML={{
         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -44,12 +40,13 @@ export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
       }}
     />,
   ]),
-    setPreBodyComponents([
-      <noscript
-        key="google-tagmanager-body"
-        dangerouslySetInnerHTML={{
-          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-        }}
-      />,
-    ])
+  setPreBodyComponents([
+    <noscript
+      type="text/partytown"
+      key="google-tagmanager-body"
+      dangerouslySetInnerHTML={{
+        __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+      }}
+    />,
+  ])
 }

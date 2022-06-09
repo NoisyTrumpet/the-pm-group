@@ -59,6 +59,8 @@
   ]
 [[plugins]]
   package = "@netlify/plugin-local-install-core"
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
 [[redirects]]
   from = "/agency-news"
   to = "/news/"
@@ -104,3 +106,4 @@
 [[redirects]]
   from = "/agency-news/*"
   to = "/news/:splat/"
+

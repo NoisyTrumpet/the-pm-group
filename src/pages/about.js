@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import { Text, Box } from "@chakra-ui/layout"
@@ -55,7 +54,7 @@ const AboutPage = ({ data: { wpPage } }) => {
   }
 
   return (
-    <Layout>
+    <>
       {wpPage.seo && <Seo post={wpPage} />}
       <GenericHero title={aboutTitle} image={aboutHero} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
@@ -81,7 +80,7 @@ const AboutPage = ({ data: { wpPage } }) => {
       </Box>
 
       <AboutTeamGrid team={teamRepeater} />
-    </Layout>
+    </>
   )
 }
 

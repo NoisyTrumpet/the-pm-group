@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
@@ -48,7 +47,7 @@ const PrivacyPolicy = ({ data: { wpPage } }) => {
   }
 
   return (
-    <Layout>
+    <>
       {wpPage.seo && <Seo post={wpPage} />}
       <GenericHero title={privacyTitle} />
       <Container>
@@ -56,7 +55,7 @@ const PrivacyPolicy = ({ data: { wpPage } }) => {
         <Text dangerouslySetInnerHTML={{ __html: description }} />
       </Container>
       <PolicyContent privacy={policies} />
-    </Layout>
+    </>
   )
 }
 

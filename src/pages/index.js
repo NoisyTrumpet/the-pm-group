@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from "../components/Layout/Layout"
 import { graphql } from "gatsby"
 
 import Seo from "gatsby-plugin-wpgraphql-seo"
@@ -55,7 +54,7 @@ const IndexPage = ({ data: { wpPage } }) => {
   }
 
   return (
-    <Layout>
+    <>
       {schema && <div dangerouslySetInnerHTML={{ __html: schema }} />}
       {wpPage.seo && <Seo post={wpPage} />}
       <Hero
@@ -82,7 +81,7 @@ const IndexPage = ({ data: { wpPage } }) => {
       />
       <ContactForm contactData={contactInfo} />
       <CompaniesGrid companies={companies} />
-    </Layout>
+    </>
   )
 }
 

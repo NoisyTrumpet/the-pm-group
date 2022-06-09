@@ -9,6 +9,15 @@ module.exports = {
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
+  // proxy: {
+  //   prefix: `/__third-party-proxy?url=*`,
+  //   url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
+  // },
+  // partytownProxiedURLs: [
+  //   `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
+  //   `https://www.google-analytics.com/analytics.js`,
+  //   `https://www.google-analytics.com`,
+  // ],
   plugins: [
     "@chakra-ui/gatsby-plugin",
     `gatsby-plugin-react-helmet`,
@@ -206,18 +215,28 @@ module.exports = {
       options: {
         name: `the-pmg-group`,
         short_name: `pmg`,
-        start_url: `/`,
+        start_url: `https://thepmgrp.com/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `./src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // `gatsby-plugin-remove-fingerprints`,
-    `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-plugin-gatsby-cloud`, // `gatsby-plugin-gatsby-cloud`
+      options: {
+        allPageHeaders: [
+          "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+        ],
+        headers: {
+          "/*": ["Cache-Control: public, max-age=31536000, immutable"],
+          "static/*": ["Cache-Control: public, max-age=31536000, immutable"],
+        },
+      },
+    },
     // `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-netlify`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
