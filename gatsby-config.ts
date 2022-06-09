@@ -6,19 +6,23 @@ module.exports = {
   siteMetadata: {
     title: `The PM Group | San Antonio’s Largest Ad and Marketing Agency`,
     description: `The PM Group is San Antonio's top advertising & marketing agency, leading in award-winning and results-driven campaigns with over 30 years of expertise.`,
-    author: `@NoisyTrumpet`,
+    author: {
+      name: "NoisyTrumpet",
+      email: "web.dev@noisytrumpet.com",
+      url: "https://github.com/NoisyTrumpet",
+      avatar_url: "https://avatars.githubusercontent.com/u/38053181?s=200&v=4"
+    },
     siteUrl: `https://thepmgrp.com`,
   },
   // proxy: {
   //   prefix: `/__third-party-proxy?url=*`,
   //   url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
   // },
-  partytownProxiedURLs: [
-    `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
-    `https://www.google-analytics.com/analytics.js`,
-    `https://www.google-analytics.com`,
-
-  ],
+  // partytownProxiedURLs: [
+  //   `https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`,
+  //   `https://www.google-analytics.com/analytics.js`,
+  //   `https://www.google-analytics.com`,
+  // ],
   plugins: [
     "@chakra-ui/gatsby-plugin",
     `gatsby-plugin-react-helmet`,

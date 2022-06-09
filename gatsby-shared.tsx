@@ -12,20 +12,6 @@ export const wrapPageElement:
   | GatsbyBrowser[`wrapPageElement`]
   | GatsbySSR[`wrapPageElement`] = ({ element, props }): JSX.Element => (
   <>
-    <Script
-      id="google-tag-manager-head"
-      src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}`}
-      strategy="off-main-thread"
-      forward={[`gtag`]}
-    />
-    <Script id="gtag-config" strategy="off-main-thread">
-      {`
-    window.dataLayer = window.dataLayer || []
-    window.gtag = function gtag() { window.dataLayer.push(arguments) }
-    gtag('js', new Date())
-    gtag('config', ${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}, { send_page_view: false })
-  `}
-    </Script>
     <link
       rel="preload"
       key="preload-montserrat-latin-500"

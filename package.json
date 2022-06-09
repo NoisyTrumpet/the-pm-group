@@ -3,8 +3,14 @@
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "@NoisyTrumpet",
+  "author": {
+    "name": "NoisyTrumpet",
+    "email": "web.dev@noisytrumpet.com",
+    "url": "https://github.com/NoisyTrumpet",
+    "avatar_url": "https://avatars.githubusercontent.com/u/38053181?s=200&v=4"
+  },
   "dependencies": {
+    "@builder.io/partytown": "^0.6.1",
     "@chakra-ui/gatsby-plugin": "^3.0.1",
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.1",
