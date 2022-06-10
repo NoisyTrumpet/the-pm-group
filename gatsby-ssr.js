@@ -1,12 +1,12 @@
 import React from "react"
-import { Partytown } from '@builder.io/partytown/react'
+import { Partytown } from "@builder.io/partytown/react"
 export { wrapPageElement, wrapRootElement } from "./gatsby-shared"
 
 const resolveUrl = url => {
   if (
-    url.hostname === 'www.google-analytics.com' ||
-    url.hostname === 'connect.facebook.net' ||
-    url.hostname === 'analytics.tiktok.com'
+    url.hostname === "www.google-analytics.com" ||
+    url.hostname === "connect.facebook.net" ||
+    url.hostname === "analytics.tiktok.com"
   ) {
     var proxyUrl = new URL(`https://coop-atm.mygenfcu.workers.dev/?${url.href}`)
     // proxyUrl.searchParams.append('', )
@@ -15,17 +15,12 @@ const resolveUrl = url => {
   return url
 }
 
-
-
-export const onRenderBody = ({
-  setHeadComponents,
-  setPreBodyComponents
-}) => {
+export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents([
     <Partytown
       key="partytown"
       debug={false}
-      forward={['dataLayer.push', 'fbq', 'ttq.load', 'ttq.page', 'ttq.track']}
+      forward={["dataLayer.push", "fbq", "ttq.load", "ttq.page", "ttq.track"]}
       resolveUrl={resolveUrl}
     />,
     <script
@@ -40,13 +35,13 @@ export const onRenderBody = ({
       }}
     />,
   ]),
-  setPreBodyComponents([
-    <noscript
-      type="text/partytown"
-      key="google-tagmanager-body"
-      dangerouslySetInnerHTML={{
-        __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-      }}
-    />,
-  ])
+    setPreBodyComponents([
+      <noscript
+        type="text/partytown"
+        key="google-tagmanager-body"
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />,
+    ])
 }

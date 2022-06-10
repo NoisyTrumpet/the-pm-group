@@ -10,6 +10,7 @@ const path = require("path")
 // const fs = require('fs');
 const { createFilePath } = require("gatsby-source-filesystem")
 const fetch = require("node-fetch")
+const redirects = require("./redirects.json")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage, createRedirect } = actions
@@ -19,6 +20,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     statusCode: 200,
     force: true,
   })
+  // Redirects
+  redirects.forEach(redirect =>
+    createRedirect({
+      fromPath: redirect.fromPath,
+      toPath: redirect.toPath,
+    })
+  )
   return new Promise((resolve, reject) => {
     graphql(
       `
