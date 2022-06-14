@@ -1,7 +1,7 @@
 import { Box, Grid, Heading, Text, Container } from "@chakra-ui/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
-import Form from "./Fragments/form"
+import { FormComponent } from "Components/FormComponent"
 import "./form.scss"
 
 const ContactForm = ({ contactData, isContactPage }) => {
@@ -44,11 +44,17 @@ const ContactForm = ({ contactData, isContactPage }) => {
             // px={[4, 16, 18, 10]}
             maxWidth="100%!important"
             display="grid"
-            placeItems="center"
+            placeItems={`center`}
             color="black"
           >
             {/* Placeholder Form */}
-            <Form />
+            <FormComponent
+              formId={1}
+              id={`contact-form-1`}
+              title={""}
+              subtitle={""}
+              content={""}
+            />
           </Box>
           <Box py={[6]} px={[4, 16, 18, 24]}>
             <Text mb={4} color="black">
@@ -126,16 +132,13 @@ const ContactForm = ({ contactData, isContactPage }) => {
               // placeItems="center"
               color="black"
             >
-              {/* Placeholder Form */}
-              {/* <GravityFormForm
-                id={formId}
-                formData={allGfForm}
-                // presetValues={{ input_1: 'special_value' }}
-                lambda={process.env.LAMBDA_ENDPOINT}
-                successCallback={handleSuccess}
-                errorCallback={handleError}
-              /> */}
-              <Form />
+              <FormComponent
+              formId={1}
+              id={`contact-form-1`}
+              title={""}
+              subtitle={""}
+              content={""}
+            />
             </Box>
             <Box py={[6]} px={[12, 16, 18, 10]}>
               <Text mb={10}>{body}</Text>

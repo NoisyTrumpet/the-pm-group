@@ -2,7 +2,10 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { Script } from "gatsby"
 import type { GatsbyBrowser, GatsbySSR } from "gatsby"
-import Layout from "./src/components/Layout/Layout"
+import Layout from "Components/Layout/Layout"
+import { ApolloProvider } from "@apollo/client"
+import { client } from "Hooks/apolloClient"
+
 /**
  * Shared `wrapPageElement` and `wrapRootElement` functions to be
  * re-exported in gatsby-browser and gatsby-ssr.
@@ -28,7 +31,9 @@ export const wrapPageElement:
       type="font/woff2"
       crossOrigin="anonymous"
     />
-    <Layout {...props}>{element}</Layout>
+    <ApolloProvider client={client}>
+      <Layout {...props}>{element}</Layout>
+    </ApolloProvider>
   </>
 )
 
