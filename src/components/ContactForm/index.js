@@ -44,7 +44,7 @@ const ContactForm = ({ contactData, isContactPage }) => {
             // px={[4, 16, 18, 10]}
             maxWidth="100%!important"
             display="grid"
-            placeItems="center"
+            placeItems={`center`}
             color="black"
           >
             {/* Placeholder Form */}

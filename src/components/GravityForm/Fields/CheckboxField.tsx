@@ -80,6 +80,9 @@ export default function CheckboxField({ field, fieldErrors }: Props) {
             id={`input_${formId}_${id}_${inputId}`}
             value={String(value)}
             onChange={handleChange}
+            style={{
+              marginRight: "0.5rem",
+            }}
           />
           <label htmlFor={`input_${formId}_${id}_${inputId}`}>{text}</label>
         </div>
