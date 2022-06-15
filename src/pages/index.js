@@ -134,10 +134,10 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    quality: 90
+                    quality: 80
                     placeholder: NONE
                     layout: CONSTRAINED
-                    formats: [WEBP, PNG]
+                    formats: [WEBP, AVIF]
                   )
                 }
               }

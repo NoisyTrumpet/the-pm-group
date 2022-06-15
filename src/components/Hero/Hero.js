@@ -1,15 +1,10 @@
 import {
-  Box,
   Button,
-  Stack,
-  Text,
-  Grid,
-  GridItem,
   useColorModeValue,
-  Flex,
   IconButton,
 } from "@chakra-ui/react"
-import * as React from "react"
+import { Box, Stack, Text, Grid, GridItem, Flex } from "@chakra-ui/layout"
+import React from "react"
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -161,7 +156,7 @@ const Hero = ({ title, caption, slides }) => {
                         }}
                         objectFit="contain"
                         className="image-slider"
-                        loading={i <= 1 ? "eager" : "lazy"}
+                        loading={"eager"}
                         alt={slide.title}
                       />
                       <Box
