@@ -1,5 +1,4 @@
 import React from "react"
-import ReactDOM from "react-dom/client"
 import { Script } from "gatsby"
 import type { GatsbyBrowser, GatsbySSR } from "gatsby"
 import Layout from "Components/Layout/Layout"
@@ -45,9 +44,3 @@ export const wrapRootElement:
     <Script>{`console.log('success loading script in wrapRootElement')`}</Script>
   </>
 )
-
-export const replaceHydrateFunction = () => {
-  return (element, container) => {
-    ReactDOM.createRoot(container, {}).render(element)
-  }
-}
