@@ -122,14 +122,6 @@ export default Category
 
 export const categoryQuery = graphql`
   query CategoryQuery($slug: String!) {
-    allWpWork(
-      filter: { categories: { nodes: { elemMatch: { slug: { eq: $slug } } } } }
-      sort: { fields: menuOrder, order: ASC }
-    ) {
-      nodes {
-        id
-      }
-    }
     wpCategory(slug: { eq: $slug }) {
       description
       name
