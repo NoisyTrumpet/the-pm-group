@@ -34,10 +34,7 @@ const PrimaryCTA = ({ items, link, ctaText, isLoading }) => {
                 fontSize="sm"
                 textDecoration="none!important"
                 key={item.title}
-                py={[
-                  4,
-                  0
-                ]}
+                py={[4, 0]}
               >
                 <Box display={`inline-block`} width={`fit-content`} pr={1}>
                   {item.title}{" "}

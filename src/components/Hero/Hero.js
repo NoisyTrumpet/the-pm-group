@@ -1,8 +1,4 @@
-import {
-  Button,
-  useColorModeValue,
-  IconButton,
-} from "@chakra-ui/react"
+import { Button, useColorModeValue, IconButton } from "@chakra-ui/react"
 import { Box, Stack, Text, Grid, GridItem, Flex } from "@chakra-ui/layout"
 import React from "react"
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons"

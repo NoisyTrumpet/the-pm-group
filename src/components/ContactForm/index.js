@@ -133,12 +133,12 @@ const ContactForm = ({ contactData, isContactPage }) => {
               color="black"
             >
               <FormComponent
-              formId={1}
-              id={`contact-form-1`}
-              title={""}
-              subtitle={""}
-              content={""}
-            />
+                formId={1}
+                id={`contact-form-1`}
+                title={""}
+                subtitle={""}
+                content={""}
+              />
             </Box>
             <Box py={[6]} px={[12, 16, 18, 10]}>
               <Text mb={10}>{body}</Text>

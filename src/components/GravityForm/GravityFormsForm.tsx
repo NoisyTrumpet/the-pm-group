@@ -97,7 +97,7 @@ export default function Form({ form }: Props) {
       duration: 9000,
       isClosable: true,
       render: () => (
-        <Box color="white" bg="secondary" p={3} borderRadius={4}>
+        <Box color="white" bg="red" p={3} borderRadius={4}>
           <Text fontWeight="bold" fontFamily="heading">
             Oops! Looks like there was an error
           </Text>
@@ -118,7 +118,7 @@ export default function Form({ form }: Props) {
         duration: 9000,
         isClosable: true,
         render: () => (
-          <Box color="color" bg="primary" p={3} borderRadius={4}>
+          <Box color="secondary" bg="black" p={3} borderRadius={4}>
             <Text fontWeight="bold" fontFamily="heading">
               Thanks For Your Submission
             </Text>
