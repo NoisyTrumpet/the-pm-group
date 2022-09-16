@@ -73,6 +73,7 @@ const MediaBuying = ({ data, context }) => {
         image={heroImage}
         isSmall
         isLeft
+        loading={"eager"}
       />
       <AccordionGrid
         grid={accordionArray}

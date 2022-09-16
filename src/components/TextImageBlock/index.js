@@ -3,7 +3,14 @@ import { Skeleton } from "@chakra-ui/react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
-const TextImageBlock = ({ title, content, image, isSmall, isLeft }) => {
+const TextImageBlock = ({
+  title,
+  content,
+  image,
+  isSmall,
+  isLeft,
+  loading,
+}) => {
   const sideImage = getImage(image?.localFile?.childImageSharp)
   return (
     <Grid
@@ -41,7 +48,7 @@ const TextImageBlock = ({ title, content, image, isSmall, isLeft }) => {
             image={sideImage}
             alt={title}
             objectFit="cover"
-            loading="eager"
+            loading={loading}
             objectPosition={isLeft && "left"}
             style={{
               gridArea: "1/1",

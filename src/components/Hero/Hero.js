@@ -55,7 +55,7 @@ const Hero = ({ title, caption, slides }) => {
                 md: "2xl",
               }}
               mt="4"
-            // maxW="lg"
+              // maxW="lg"
             >
               {caption}
             </Text>
