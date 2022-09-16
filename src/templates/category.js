@@ -54,7 +54,6 @@ const Category = ({ data }) => {
     seo.metaRobotsNofollow = "follow"
   }
 
-
   return (
     <>
       {seo && <Seo post={{ seo }} />}

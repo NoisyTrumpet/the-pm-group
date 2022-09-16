@@ -253,7 +253,6 @@ module.exports = {
           Static: "static",
         },
       },
-
     },
   ],
 }
