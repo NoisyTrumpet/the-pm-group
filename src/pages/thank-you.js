@@ -20,7 +20,7 @@ const ThankYouPage = ({ data }) => {
     const schemaObj = JSON.parse(schemaRaw)
 
     // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][4]
+    const breadcrumbList = schemaObj["@graph"][2]
     // breadcrumbList["@context"] = "https://schema.org"
     delete breadcrumbList["@id"]
     // Home

@@ -12,27 +12,26 @@ import Features from "../components/Features"
 // import {modifySchema} from "../utils/modifySchema"
 
 const AboutPage = ({ data: { wpPage } }) => {
+  const { seo, aboutFields, title, slug } = wpPage
+
   // About Hero Fields :
   const aboutHero =
-    wpPage.aboutFields.aboutHero.aboutBackgroundImage.localFile.childImageSharp
-  const aboutTitle = wpPage.aboutFields.aboutHero.aboutTitle
+    aboutFields.aboutHero.aboutBackgroundImage.localFile.childImageSharp
+  const aboutTitle = aboutFields.aboutHero.aboutTitle
   // About Icon Array Fields :
-  const aboutIconArray = wpPage.aboutFields.aboutGrid.aboutEntry
+  const aboutIconArray = aboutFields.aboutGrid.aboutEntry
   // About Team Hero
-  const aboutTeamTitle = wpPage.aboutFields.aboutTeamHero.aboutTeamHeroTitle
+  const aboutTeamTitle = aboutFields.aboutTeamHero.aboutTeamHeroTitle
   // About Team Repeater
-  const teamRepeater = wpPage.aboutFields.aboutTeam.aboutImageRepeater
+  const teamRepeater = aboutFields.aboutTeam.aboutImageRepeater
 
-  if (wpPage.seo) {
+  if (seo) {
     // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
-    const schemaRaw = wpPage.seo.schema.raw.replace(
-      /"\/"/g,
-      '"https://thepmgrp.com/"'
-    )
+    const schemaRaw = seo.schema.raw.replace(/"\/"/g, '"https://thepmgrp.com/"')
     // Initalize schema object
     const schemaObj = JSON.parse(schemaRaw)
     // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][3]
+    const breadcrumbList = schemaObj["@graph"][1]
     // breadcrumbList["@context"] = "https://schema.org"
     delete breadcrumbList["@id"]
     // Home
@@ -43,19 +42,19 @@ const AboutPage = ({ data: { wpPage } }) => {
     delete breadcrumbList["itemListElement"][0].name
     // About
     breadcrumbList["itemListElement"][1].item = {
-      "@id": `https://thepmgrp.com/${wpPage.slug}/`,
-      name: wpPage.title,
+      "@id": `https://thepmgrp.com/${slug}/`,
+      name: title,
     }
     delete breadcrumbList["itemListElement"][1].name
 
-    wpPage.seo.schema.raw = JSON.stringify(schemaObj)
-    wpPage.seo.metaRobotsNoindex = "index"
-    wpPage.seo.metaRobotsNofollow = "follow"
+    seo.schema.raw = JSON.stringify(schemaObj)
+    seo.metaRobotsNoindex = "index"
+    seo.metaRobotsNofollow = "follow"
   }
 
   return (
     <>
-      {wpPage.seo && <Seo post={wpPage} />}
+      {seo && <Seo post={wpPage} />}
       <GenericHero title={aboutTitle} image={aboutHero} />
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
       <Features features={aboutIconArray} isAbout />

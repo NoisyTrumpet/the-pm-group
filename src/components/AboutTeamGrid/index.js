@@ -20,7 +20,7 @@ const AboutTeamGrid = ({ team }) => {
         ]}
         className="aboutTeamGrid"
       >
-        {team.map(item => (
+        {team.map((item, i) => (
           <Box
             p={0}
             position="relative"
@@ -28,13 +28,12 @@ const AboutTeamGrid = ({ team }) => {
             onClick={() => {
               item.teamLink && item.teamLink.url && navigate(item.teamLink.url)
             }}
+            key={`team-member-${i}`}
           >
             <GatsbyImage
               image={getImage(item.teamImage.localFile.childImageSharp)}
               height={300}
               width={300}
-              maxHeight={1000}
-              maxWidth={1000}
               objectFit="cover"
               p={0}
               objectPosition="top"

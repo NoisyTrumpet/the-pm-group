@@ -6,7 +6,6 @@ import {
   useColorMode,
   List,
   ListItem,
-  useMediaQuery,
   useDisclosure,
   useColorModeValue,
   IconButton,
@@ -21,7 +20,6 @@ import SubMenu from "../../SubMenu"
 const NavBar = ({ children, menu, siteTitle, ...props }) => {
   const { colorMode } = useColorMode()
   // tablet breakpoint
-  const [tabletDown] = useMediaQuery("(max-width: 1000px)")
   const mobileNav = useDisclosure()
   const buttonColor = useColorModeValue(["black"])
 
@@ -51,6 +49,12 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
             key={node.label}
             my={[4, 4, 4, 0]}
             mt={isMobile && node.label === "Connect" && 8}
+            onClick={isMobile && mobileNav.onClose}
+            display={{
+              base: "none",
+              md: "none",
+              lg: "block",
+            }}
           >
             {node.label === "Companies" ? (
               <SubMenu title={node.label} links={subLinks} />
@@ -94,39 +98,43 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
       {/* <ThemeToggle /> */}
       <Branding />
       <Box alignItems="center" display="flex" position="relative">
-        {tabletDown && (
-          <Link
-            py={3}
-            px={6}
-            bg="black"
-            color="secondary"
-            fontWeight="bold"
-            _hover={{
-              color: "black",
-              bg: "secondary",
-            }}
-            mr="8"
-            to="/contact-us"
-            transition="all 0.3s"
-          >
-            Connect
-          </Link>
-        )}
-        {tabletDown && (
-          <IconButton
-            display={{
-              base: "flex",
-            }}
-            backgroundColor={buttonColor}
-            size="sm"
-            aria-label="Open menu"
-            fontSize="20px"
-            variant="black"
-            onClick={mobileNav.onOpen}
-            icon={<HamburgerIcon color={`secondary`} />}
-          />
-        )}
-        {!tabletDown && <MenuLinks />}
+        <Link
+          py={3}
+          px={6}
+          bg="black"
+          color="secondary"
+          fontWeight="bold"
+          _hover={{
+            color: "black",
+            bg: "secondary",
+          }}
+          mr="8"
+          to="/contact-us"
+          transition="all 0.3s"
+          display={{
+            base: "flex",
+            md: "flex",
+            lg: "none",
+          }}
+        >
+          Connect
+        </Link>
+
+        <IconButton
+          display={{
+            base: "flex",
+            md: "flex",
+            lg: "none",
+          }}
+          backgroundColor={buttonColor}
+          size="sm"
+          aria-label="Open menu"
+          fontSize="20px"
+          variant="black"
+          onClick={mobileNav.onOpen}
+          icon={<HamburgerIcon color={`secondary`} />}
+        />
+        <MenuLinks />
         {/* <ThemeToggle marginLeft={4} backgroundColor={buttonColor} /> */}
       </Box>
       <MobileNavContent

@@ -70,6 +70,7 @@ const IndexPage = ({ data: { wpPage } }) => {
         content={aboutContent}
         image={aboutImage}
         isSmall
+        loading={"eager"}
       />
       <Features features={services} />
       <ParallaxCTA text={secondaryCTAText} image={secondaryCTAImage} />
@@ -78,6 +79,7 @@ const IndexPage = ({ data: { wpPage } }) => {
         content={gotHereText}
         image={gotHereImage}
         isSmall
+        loading={"lazy"}
       />
       <ContactForm contactData={contactInfo} />
       <CompaniesGrid companies={companies} />
@@ -134,10 +136,10 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    quality: 80
+                    quality: 60
                     placeholder: NONE
                     layout: CONSTRAINED
-                    formats: [WEBP, AVIF]
+                    formats: [WEBP, PNG]
                   )
                 }
               }
@@ -154,7 +156,7 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData(
                   formats: [WEBP, PNG]
-                  quality: 90
+                  quality: 60
                   placeholder: NONE
                   layout: CONSTRAINED
                 )
@@ -167,7 +169,7 @@ export const pageQuery = graphql`
               localFile {
                 childImageSharp {
                   gatsbyImageData(
-                    quality: 90
+                    quality: 60
                     placeholder: NONE
                     layout: CONSTRAINED
                     formats: [WEBP, PNG]
@@ -184,7 +186,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 90
+                  quality: 60
                   formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   placeholder: NONE
@@ -210,7 +212,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 90
+                  quality: 60
                   formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   placeholder: NONE
@@ -239,7 +241,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 90
+                  quality: 60
                   formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   placeholder: NONE
@@ -247,7 +249,7 @@ export const pageQuery = graphql`
               }
               childrenImageSharp {
                 gatsbyImageData(
-                  quality: 90
+                  quality: 60
                   formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   placeholder: NONE
@@ -269,7 +271,7 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 90
+                  quality: 60
                   placeholder: NONE
                   formats: [WEBP, PNG]
                 )

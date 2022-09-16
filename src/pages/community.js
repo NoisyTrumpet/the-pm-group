@@ -55,6 +55,7 @@ const CommunityPage = ({ data }) => {
         content={aboutContent}
         image={aboutImage}
         isSmall
+        loading={"eager"}
       />
       <CommunityGrid images={communityImages} />
       <Box
