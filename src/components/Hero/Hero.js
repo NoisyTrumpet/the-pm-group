@@ -55,7 +55,7 @@ const Hero = ({ title, caption, slides }) => {
                 md: "2xl",
               }}
               mt="4"
-              // maxW="lg"
+            // maxW="lg"
             >
               {caption}
             </Text>
@@ -136,9 +136,9 @@ const Hero = ({ title, caption, slides }) => {
                           borderRadius: "10px",
                         },
                       }}
-                      key={slide.title}
+                      key={`slide-${i}-${slide.title}`}
                       w="fit-content"
-                      href={slide.link.url}
+                      href={slide.link?.url && slide.link.url}
                       minH="242px"
                     >
                       <GatsbyImage
