@@ -30,9 +30,8 @@ const NewsWire = ({ data, pageContext }) => {
     )
     // Initalize schema object
     const schemaObj = JSON.parse(schemaRaw)
-
     // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][3]
+    const breadcrumbList = schemaObj["@graph"][1]
     // breadcrumbList["@context"] = "https://schema.org"
     delete breadcrumbList["@id"]
     // Home

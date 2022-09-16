@@ -18,7 +18,7 @@ const BlogPage = ({ data, pageContext }) => {
     let schemaObj = JSON.parse(schemaRaw)
 
     // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][4]
+    const breadcrumbList = schemaObj["@graph"][3]
     breadcrumbList["@context"] = "https://schema.org"
     delete breadcrumbList["@id"]
     // Home

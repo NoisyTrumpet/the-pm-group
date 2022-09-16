@@ -22,10 +22,12 @@ const Category = ({ data }) => {
   if (seo) {
     // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
     const schemaRaw = seo.schema.raw.replace(/"\/"/g, '"https://thepmgrp.com/"')
+
     // Raplace all instances of 'category' in schemaRaw with 'our-work'
     const schemaRawReplaced = schemaRaw.replace(/category/g, "our-work")
+
     const schemaObject = JSON.parse(schemaRawReplaced)
-    const breadcrumbList = schemaObject["@graph"][3]
+    const breadcrumbList = schemaObject["@graph"][1]
     breadcrumbList["@context"] = "https://schema.org"
     delete breadcrumbList["@id"]
     // Home
@@ -51,6 +53,7 @@ const Category = ({ data }) => {
     seo.metaRobotsNoindex = "index"
     seo.metaRobotsNofollow = "follow"
   }
+
 
   return (
     <>

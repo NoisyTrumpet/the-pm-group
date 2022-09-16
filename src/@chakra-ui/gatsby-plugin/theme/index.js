@@ -17,13 +17,13 @@ import sizes from "./foundations/sizes"
 import colors from "./foundations/colors"
 
 // Custom breakpoints
-const breakpoints = createBreakpoints({
+const breakpoints = {
   sm: `640px`,
   md: `768px`,
   lg: `1024px`,
   xl: `1280px`,
   "2xl": `1536px`,
-})
+}
 
 const theme = extendTheme({
   styles,

@@ -22,7 +22,7 @@ const LeadershipTemplate = ({ data }) => {
     // Initalize schema object
     let schemaObj = JSON.parse(schemaRawClean)
     // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][3]
+    const breadcrumbList = schemaObj["@graph"][1]
     // Home
     breadcrumbList["itemListElement"][0].item = {
       "@id": `${breadcrumbList["itemListElement"][0].item}`,

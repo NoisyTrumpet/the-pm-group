@@ -199,7 +199,7 @@ module.exports = {
         // Defaults used for gatsbyImageData and StaticImage
         // defaults: {},
         // Set to false to allow builds to continue on image errors
-        failOnError: false,
+        failOn: "none",
         // deprecated options and their defaults:
         // base64Width: 20,
         // forceBase64Format: ``, // valid formats: png,jpg,webp
@@ -221,20 +221,21 @@ module.exports = {
       },
     },
     // `gatsby-plugin-remove-fingerprints`,
-    {
-      resolve: `gatsby-plugin-gatsby-cloud`, // `gatsby-plugin-gatsby-cloud`
-      options: {
-        allPageHeaders: [
-          "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
-        ],
-        headers: {
-          "/*": ["Cache-Control: public, max-age=31536000, immutable"],
-          "static/*": ["Cache-Control: public, max-age=31536000, immutable"],
-        },
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-gatsby-cloud`, // `gatsby-plugin-gatsby-cloud`
+    //   options: {
+    //     allPageHeaders: [
+    //       "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
+    //     ],
+    //     headers: {
+    //       "/*": ["Cache-Control: public, max-age=31536000, immutable"],
+    //       "static/*": ["Cache-Control: public, max-age=31536000, immutable"],
+    //     },
+    //   },
+    // },
     // `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-netlify`,
     // Alias Imports:
     {
       resolve: "gatsby-alias-imports",
@@ -252,6 +253,7 @@ module.exports = {
           Static: "static",
         },
       },
+
     },
   ],
 }
