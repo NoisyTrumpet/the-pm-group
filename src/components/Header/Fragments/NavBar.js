@@ -39,22 +39,18 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
     )
   }
 
-  const MenuLinks = ({ isMobile }) => {
+  const MenuLinks = ({ isMobile, isOpen }) => {
     const links = []
     const subLinks = []
     menu.nodes.forEach(node => {
+      const isCompany = node.label === "Companies"
       if (!node.parentId) {
         links.push(
           <ListItem
             key={node.label}
             my={[4, 4, 4, 0]}
             mt={isMobile && node.label === "Connect" && 8}
-            onClick={isMobile && mobileNav.onClose}
-            display={{
-              base: "none",
-              md: "none",
-              lg: "block",
-            }}
+            onClick={!isCompany && isMobile && mobileNav.onClose}
           >
             {node.label === "Companies" ? (
               <SubMenu title={node.label} links={subLinks} />
@@ -134,7 +130,15 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
           onClick={mobileNav.onOpen}
           icon={<HamburgerIcon color={`secondary`} />}
         />
-        <MenuLinks />
+        <Box
+          display={{
+            base: `none`,
+            md: `none`,
+            lg: `block`,
+          }}
+        >
+          <MenuLinks />
+        </Box>
         {/* <ThemeToggle marginLeft={4} backgroundColor={buttonColor} /> */}
       </Box>
       <MobileNavContent
@@ -142,7 +146,7 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
         onClose={mobileNav.onClose}
         display={{ md: `none` }}
       >
-        <MenuLinks isMobile />
+        <MenuLinks isMobile isOpen={mobileNav.isOpen} />
       </MobileNavContent>
     </Flex>
   )
