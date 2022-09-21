@@ -130,6 +130,7 @@ export const pageQuery = graphql`
       homeFields {
         hero {
           slider {
+            textGradientStyle
             caption
             title
             image {
