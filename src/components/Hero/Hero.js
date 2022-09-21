@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import "./Hero.scss"
 
-const Hero = ({ title, caption, slides }) => {
+const Hero = ({ title, caption, textGradientStyle, slides }) => {
   const hasMultipleImages = slides.length > 1
   const bgScrollbar = useColorModeValue(`gray.300`, `gray.800`)
   const bgScrollThumb = useColorModeValue(`gray.600`, `gray.400`)
@@ -159,7 +159,12 @@ const Hero = ({ title, caption, slides }) => {
                         gridArea="1/1"
                         zIndex={2}
                         bg={
-                          "linear-gradient(0deg, #1d1b1b 20%, rgba(26,32,44,0) 100%)"
+                          (slide.textGradientStyle === "none" &&
+                            "transparent") ||
+                          (slide.textGradientStyle === "halfGrade" &&
+                            "linear-gradient(0deg, #1d1b1b8A 20%, rgba(26,32,44,0) 100%)") ||
+                          (slide.textGradientStyle === "default" &&
+                            "linear-gradient(0deg, #1d1b1b 20%, rgba(26,32,44,0) 100%)")
                         }
                         height="fit-content"
                         alignSelf="end"
