@@ -50,7 +50,7 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
             key={node.label}
             my={[4, 4, 4, 0]}
             mt={isMobile && node.label === "Connect" && 8}
-            onClick={!isCompany && isMobile && mobileNav.onClose}
+            onClick={(!isCompany && isMobile) ? mobileNav.onClose : undefined}
           >
             {node.label === "Companies" ? (
               <SubMenu title={node.label} links={subLinks} />
