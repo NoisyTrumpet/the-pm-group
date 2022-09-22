@@ -117,6 +117,8 @@ module.exports = {
           hardCacheMediaFiles: true,
         },
         schema: {
+          perPage: 20,
+          requestConcurrency: 5,
           timeout: 3000000,
         },
         type: {
