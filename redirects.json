@@ -32,8 +32,8 @@
         "toPath": "/news/black-friday/"
     },
     {
-        "fromPath": "news/1-trillion-holiday-retail-sales",
-        "toPath": "news/1-trillion-holiday-retail-sales/"
+        "fromPath": "/news/1-trillion-holiday-retail-sales",
+        "toPath": "/news/1-trillion-holiday-retail-sales/"
     },
     {
         "fromPath": "/thanksgiving-black-friday-2017-become-one-busiest-online-shopping-weeks-history",
