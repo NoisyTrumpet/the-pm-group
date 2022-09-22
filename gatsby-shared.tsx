@@ -38,7 +38,10 @@ export const wrapPageElement:
       type="font/woff2"
       crossOrigin="anonymous"
     />
-    <ApolloProvider client={client}>
+    <ApolloProvider
+      client={client}
+      children={undefined}
+    >
       <Layout {...props}>{element}</Layout>
     </ApolloProvider>
   </>

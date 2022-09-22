@@ -9,6 +9,9 @@ module.exports = {
     author: `@NoisyTrumpet`,
     siteUrl: `https://thepmgrp.com`,
   },
+  flags: {
+    FAST_DEV: true,
+  },
   // proxy: {
   //   prefix: `/__third-party-proxy?url=*`,
   //   url: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
@@ -102,9 +105,9 @@ module.exports = {
         //     password: process.env.HTTPBASICAUTH_PASSWORD,
         //   },
         // },
-        html: {
-          useGatsbyImage: false,
-        },
+        // html: {
+        //   useGatsbyImage: false,
+        // },
         production: {
           hardCacheMediaFiles: true,
           allow404Images: true,
