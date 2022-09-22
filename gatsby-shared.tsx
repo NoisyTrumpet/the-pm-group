@@ -40,7 +40,6 @@ export const wrapPageElement:
     />
     <ApolloProvider
       client={client}
-      children={undefined}
     >
       <Layout {...props}>{element}</Layout>
     </ApolloProvider>
