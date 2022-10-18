@@ -17,45 +17,6 @@
 #     X-Content-Type-Options = "nosniff"
 #     Content-Security-Policy = "default-src 'self'; script-src 'self' 'strict-dynamic' fastly.net *.fastly.net lr-ingest.io *.lr-ingest.io cloudfront.net *.cloudfront.net www.googletagmanager.com *www.googletagmanager.com googletagmanager.com *.googletagmanager.com *.google-analytics.com thepmgrp.com *thepmgrp.com; worker-src 'self' blob: data: lr-ingest.io *.lr-ingest.io; prefetch-src 'self'; connect-src 'self' r.lr-in.com lr-ingest.io *.lr-ingest.io google-analytics.com *.google-analytics.com stats.g.doubleclick.net; img-src 'self' thepmgroup.flywheelsites.com *.fastly.net fastly.net data: cloudfront.net *.cloudfront.net cloudinary.com *.cloudinary.com google.com www.google.com google-analytics.com *.google-analytics.com; font-src 'self' gstatic.com *.gstatic.com cloudfront.net *.cloudfront.net data:; manifest-src 'self'; style-src 'unsafe-inline' googleapis.com *.googleapis.com cloudfront.net *.cloudfront.net; frame-ancestors 'self'; form-action 'self'; script-src-elem 'self' netlify-cdp-loader.netlify.app 'unsafe-inline' cdn.lr-in.com lr-ingest.io r.lr-in.com *.lr-ingest.io cloudfront.net *.cloudfront.net googletagmanager.com *.googletagmanager.com google-analytics.com *.google-analytics.com; object-src 'none'; report-uri github.com/NoisyTrumpet/the-pm-group/issues; frame-src google.com www.google.com youtube.com www.youtube.com; media-src thepmgroup.flywheelsites.com"
 [[plugins]]
-  [plugins.inputs]
-  buildDir = "public"
-  # baseUrl = "https://thepmgrp.com"
-  trailingSlash = true
-  exclude = [
-    # By file Path
-    "./public/news/2/index.html",
-    "./public/news/3/index.html",
-    "./public/news/4/index.html",
-    "./public/news/5/index.html",
-    "./public/news/6/index.html",
-    "./public/news/7/index.html",
-    "./public/news/8/index.html",
-    "./public/news/9/index.html",
-    "./public/news/10/index.html",
-    "./public/news/11/index.html",
-    "./public/news/12/index.html",
-    "./public/news/13/index.html",
-    "./public/news/14/index.html",
-    "./public/news/15/index.html",
-    "./public/news/16/index.html",
-    "./public/news/17/index.html",
-    "./public/news/18/index.html",
-    "./public/news/19/index.html",
-    "./public/news/20/index.html",
-    "./public/news/21/index.html",
-    "./public/news/22/index.html",
-    "./public/news/23/index.html",
-    "./public/news/24/index.html",
-    "./public/news/25/index.html",
-    "./public/news/26/index.html",
-    "./public/news/27/index.html",
-    "./public/news/28/index.html",
-    "./public/news/29/index.html",
-    "./public/our-work/uncategorized/index.html",
-    "./public/404/index.html",
-    "./public/404.html",
-  ]
-[[plugins]]
   package = "@netlify/plugin-local-install-core"
 [[plugins]]
   package = "@netlify/plugin-gatsby"
