@@ -45,8 +45,8 @@
   from = "/news/black-friday"
   to = "/news/black-friday/"
 [[redirects]]
-  from = "news/1-trillion-holiday-retail-sales"
-  to = "news/1-trillion-holiday-retail-sales/"
+  from = "/news/1-trillion-holiday-retail-sales"
+  to = "/news/1-trillion-holiday-retail-sales/"
 [[redirects]]
   from = "/thanksgiving-black-friday-2017-become-one-busiest-online-shopping-weeks-history"
   to = "/news/thanksgiving-black-friday-2017-become-one-busiest-online-shopping-weeks-history/"
