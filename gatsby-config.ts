@@ -22,6 +22,7 @@ module.exports = {
   //   `https://www.google-analytics.com`,
   // ],
   plugins: [
+    `gatsby-plugin-netlify`,
     "@chakra-ui/gatsby-plugin",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
@@ -244,7 +245,6 @@ module.exports = {
     // },
     // `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-netlify`,
     `gatsby-plugin-advanced-sitemap`, // Sitemap
     // Alias Imports:
     {
