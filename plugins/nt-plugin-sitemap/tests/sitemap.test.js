@@ -19,7 +19,7 @@ test.beforeEach(t => {
 test.afterEach(async t => {
   try {
     await pUnlink(t.context.fileName)
-  } catch (_) { }
+  } catch (_) {}
 })
 
 // Test relative and absolute paths
@@ -51,7 +51,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       homepage: "https://site.com/",
       distPath,
       prettyURLs: true,
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
@@ -77,7 +77,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       distPath,
       prettyURLs: true,
       trailingSlash: true,
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
@@ -102,7 +102,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       homepage: "https://site.com/",
       distPath,
       prettyURLs: false,
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
@@ -130,7 +130,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       homepage: "https://site.com/",
       distPath,
       prettyURLs: false,
-      failBuild() { },
+      failBuild() {},
       changeFreq: defaultChangeFreq,
       priority: defaultPriority,
       fileName,
@@ -148,7 +148,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       homepage: "https://site.com/",
       distPath,
       prettyURLs: false,
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
@@ -170,7 +170,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
         // Glob pattern
         "**/**/child-one.html",
       ],
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
@@ -197,7 +197,7 @@ CONFIGS.forEach(({ distPath, testNamePostfix, cwd, excludePath }) => {
       distPath,
       prettyURLs: true,
       urlPrefix: "en/",
-      failBuild() { },
+      failBuild() {},
       fileName,
       cwd,
     })
