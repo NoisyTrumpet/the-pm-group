@@ -116,6 +116,10 @@ module.exports = {
           hardCacheData: true,
           hardCacheMediaFiles: true,
         },
+        // Don't use gatsby image in html
+        html: {
+          useGatsbyImage: false,
+        },
         schema: {
           perPage: 10,
           requestConcurrency: 5,
@@ -241,6 +245,7 @@ module.exports = {
     // `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-advanced-sitemap`, // Sitemap
     // Alias Imports:
     {
       resolve: "gatsby-alias-imports",
