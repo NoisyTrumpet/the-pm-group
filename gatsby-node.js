@@ -7,20 +7,14 @@
 
 // You can delete this file if you're not using it
 const path = require("path")
-// const fs = require('fs');
 const { createFilePath } = require("gatsby-source-filesystem")
+const { copyLibFiles } = require('@builder.io/partytown/utils')
 const redirects = require("./redirects.json")
 const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args))
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage, createRedirect } = actions
-  createRedirect({
-    fromPath: `/__third-party-proxy?url=*`,
-    toPath: `https://coop-atm.mygenfcu.workers.dev/?:splat`,
-    statusCode: 200,
-    force: true,
-  })
   // Redirects
   redirects.forEach(redirect =>
     createRedirect({
@@ -190,3 +184,8 @@ exports.createResolvers = async ({ createResolvers, schema }) =>
       },
     },
   })
+
+// Partytown Prebuild
+exports.onPreBuild = async () => {
+  await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+}
