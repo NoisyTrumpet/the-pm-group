@@ -244,7 +244,6 @@ module.exports = {
     //   },
     // },
     // `gatsby-plugin-preact`,
-    `gatsby-plugin-sass`,
     `gatsby-plugin-advanced-sitemap`, // Sitemap
     // Alias Imports:
     {
