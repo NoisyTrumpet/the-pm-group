@@ -1,9 +1,6 @@
 # @netlify/plugin-gatsby
 [[plugins]]
   package = "@netlify/plugin-gatsby"
-# gatsby-plugin-netlify
-[[plugins]]
-  package = "gatsby-plugin-netlify"
 [[redirects]]
   from = "/agency-news"
   to = "/news/"
