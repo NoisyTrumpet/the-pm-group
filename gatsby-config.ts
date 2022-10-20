@@ -121,7 +121,7 @@ module.exports = {
           useGatsbyImage: false,
         },
         schema: {
-          perPage: 10,
+          perPage: 300,
           requestConcurrency: 5,
           timeout: 4000000,
         },
