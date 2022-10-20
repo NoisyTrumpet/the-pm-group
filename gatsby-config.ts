@@ -22,7 +22,6 @@ module.exports = {
   //   `https://www.google-analytics.com`,
   // ],
   plugins: [
-    `gatsby-plugin-netlify`,
     "@chakra-ui/gatsby-plugin",
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
@@ -263,5 +262,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-netlify`, // make sure to keep it last in the array
   ],
 }
