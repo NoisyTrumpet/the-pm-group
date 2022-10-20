@@ -41,6 +41,7 @@ module.exports = {
     // `gatsby-plugin-force-trailing-slashes`,
     // Peact for speed!
     // `gatsby-plugin-preact`,
+    `gatsby-plugin-sass`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
