@@ -93,26 +93,34 @@ const Category = ({ data }) => {
             gap={3}
           >
             {works &&
-              works.map(item => (
-                <Fade bottom key={item.id}>
-                  <WorkItem
-                    title={item.title}
-                    type={item.videoFields.videoLink ? "Television" : name}
-                    image={
-                      item.theWorkImage?.photoLink?.localFile
-                        ?.childImageSharp ||
-                      item.videoFields.videoCoverImage?.localFile
-                        .childImageSharp ||
-                      item.featuredImage?.node?.localFile?.childImageSharp
-                    }
-                    media={
-                      item.videoFields.videoLink ||
-                      item.workAudio.radioClip?.link ||
-                      ""
-                    }
-                  />
-                </Fade>
-              ))}
+              works.map(item => {
+                const { title, id, videoFields, theWorkImage } = item
+
+                const { videoLink, videoCoverImage } = videoFields
+
+                const isVideo = videoLink ? true : false
+
+                return (
+                  <Fade bottom key={id}>
+                    <WorkItem
+                      title={title}
+                      type={isVideo ? "Television" : name}
+                      image={
+                        isVideo
+                          ? videoCoverImage?.localFile?.childImageSharp
+                          : theWorkImage?.photoLink?.localFile
+                              ?.childImageSharp ||
+                            item.featuredImage?.node?.localFile?.childImageSharp
+                      }
+                      media={
+                        item.videoFields.videoLink ||
+                        item.workAudio.radioClip?.link ||
+                        ""
+                      }
+                    />
+                  </Fade>
+                )
+              })}
           </Grid>
         </Box>
       </Container>

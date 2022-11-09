@@ -247,7 +247,7 @@ export const newsQuery = graphql`
         }
       }
     }
-    allWpPost(sort: { fields: date, order: DESC }, limit: $limit, skip: $skip) {
+    allWpPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
       edges {
         node {
           nodeType
