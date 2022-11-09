@@ -8,7 +8,7 @@
 // You can delete this file if you're not using it
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
-const { copyLibFiles } = require('@builder.io/partytown/utils')
+const { copyLibFiles } = require("@builder.io/partytown/utils")
 const redirects = require("./redirects.json")
 const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args))
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
             }
           }
-          allWpPost(sort: { fields: date, order: DESC }, limit: 1000) {
+          allWpPost(sort: { date: DESC }, limit: 1000) {
             edges {
               node {
                 id
@@ -187,5 +187,5 @@ exports.createResolvers = async ({ createResolvers, schema }) =>
 
 // Partytown Prebuild
 exports.onPreBuild = async () => {
-  await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+  await copyLibFiles(path.join(__dirname, "static", "~partytown"))
 }

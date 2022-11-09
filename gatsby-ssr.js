@@ -17,6 +17,54 @@ const resolveUrl = url => {
 
 export const onRenderBody = ({ setHeadComponents, setPreBodyComponents }) => {
   setHeadComponents([
+    <link
+      rel="preload"
+      key="preload-montserrat-latin-500"
+      href="/static/montserrat-latin-500-normal-38a674fae449557fef97f120c301ff8d.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
+    <link
+      rel="preload"
+      key="preload-montserrat-latin-700"
+      href="/static/montserrat-latin-700-normal-56c09b9a46af6a54eeb30e554f833d13.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
+    <link
+      rel="preload"
+      key="preload-montserrat-latin-600"
+      href="/static/montserrat-latin-600-normal-5d6df38dd70f631c488bdec905f68464.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
+    <link
+      rel="preload"
+      key="preload-cloudfront-montserrat-latin-500"
+      href="https://d33wubrfki0l68.cloudfront.net/9cd9f5a2f86f1d42390141d91619a0aa41a276b7/409e6/static/montserrat-latin-500-normal-38a674fae449557fef97f120c301ff8d.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
+    <link
+      rel="preload"
+      key="preload-cloudfront-montserrat-latin-700"
+      href="https://d33wubrfki0l68.cloudfront.net/f3708b707b65e241b0f1c819d5f7bf7da8412653/641cb/static/montserrat-latin-700-normal-56c09b9a46af6a54eeb30e554f833d13.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
+    <link
+      rel="preload"
+      key="preload-cloudfront-montserrat-latin-600"
+      href="https://d33wubrfki0l68.cloudfront.net/e12420f5e4da3ccdc75a58ce744e7d5a0c6cf79e/8d631/static/montserrat-latin-600-normal-5d6df38dd70f631c488bdec905f68464.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />,
     <Partytown
       key="partytown"
       debug={false}

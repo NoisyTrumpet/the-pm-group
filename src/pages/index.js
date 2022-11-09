@@ -19,32 +19,39 @@ const CompaniesGrid = loadable(() => import("../components/CompaniesGrid"))
 // import CompaniesGrid from "../components/CompaniesGrid"
 
 const IndexPage = ({ data: { wpPage } }) => {
-  // Hero Fields
-  const heroTitle = wpPage?.homeFields?.headline
-  const heroCaption = wpPage?.homeFields?.subcaption
-  const slides = wpPage?.homeFields?.hero?.slider
-  //  Primary CTA Fields :
-  const ctaItems = wpPage?.homeFields?.primaryCta?.primaryCtaFields
-  const ctaLink = wpPage?.homeFields?.primaryCta?.ctaLink.url
-  const ctaText = wpPage?.homeFields?.primaryCta?.ctaText
-  // TextImageBlock 1 Fields:
-  const aboutTitle = wpPage?.homeFields?.aboutSection?.title
-  const aboutContent = wpPage?.homeFields?.aboutSection?.content
-  const aboutImage = wpPage?.homeFields?.aboutSection?.image
-  // Features/Services:
-  const services = wpPage?.homeFields?.services
+  const {
+    headline: heroTitle,
+    subcaption: heroCaption,
+    hero,
+    primaryCta,
+    aboutSection,
+    services,
+    secondaryCta,
+    howWeGotHere,
+    contactSection: contactInfo,
+    companies: { companyItem: companies, backgroundImage: companiesBackground },
+  } = wpPage.homeFields
+
+  const { slider: slides } = hero
+
+  const {
+    primaryCtaFields: ctaItems,
+    ctaLink: { url: ctaLink },
+    ctaText,
+  } = primaryCta
+
+  const {
+    title: aboutTitle,
+    content: aboutContent,
+    image: aboutImage,
+  } = aboutSection
+
   // Parallax CTA:
-  const secondaryCTAText = wpPage?.homeFields?.secondaryCta?.title
-  const secondaryCTAImage = wpPage?.homeFields?.secondaryCta?.image
+  const { title: secondaryCTAText, image: secondaryCTAImage } = secondaryCta
+
   // How we got here:
-  const gotHereTitle = wpPage?.homeFields?.howWeGotHere?.title
-  const gotHereText = wpPage?.homeFields?.howWeGotHere?.content
-  const gotHereImage = wpPage?.homeFields?.howWeGotHere?.image
+  const { title: gotHereTitle, content: gotHereText, image: gotHereImage } = howWeGotHere
   // Contact Section
-  const contactInfo = wpPage?.homeFields?.contactSection
-  // const form = gfForm
-  // Companies Section
-  const companies = wpPage?.homeFields?.companies
   // Custom Schema
   const schema = wpPage?.customSchema.customSchema
 
@@ -82,7 +89,7 @@ const IndexPage = ({ data: { wpPage } }) => {
         loading={"lazy"}
       />
       <ContactForm contactData={contactInfo} />
-      <CompaniesGrid companies={companies} />
+      <CompaniesGrid companies={companies} image={companiesBackground} />
     </>
   )
 }

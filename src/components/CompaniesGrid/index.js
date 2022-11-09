@@ -4,8 +4,10 @@ import React from "react"
 import Link from "../Link/Link"
 import "./styles.scss"
 
-const CompaniesGrid = ({ companies }) => {
-  const { backgroundImage: image, companyItem: items } = companies
+const CompaniesGrid = ({ companies, image }) => {
+  console.log(companies)
+  console.log(image)
+
   return (
     <Box position={`relative`} display="grid" placeItems="center">
       <Box
@@ -23,7 +25,7 @@ const CompaniesGrid = ({ companies }) => {
           placeItems="center"
           gap={6}
         >
-          {items.map(item => (
+          {companies.map(item => (
             <Box
               key={item.companyLink}
               display="grid"
@@ -42,12 +44,14 @@ const CompaniesGrid = ({ companies }) => {
           ))}
         </Grid>
       </Box>
-      <GatsbyImage
-        image={getImage(image.localFile)}
-        alt={`test`}
-        style={{ gridArea: "1/1", maxHeight: `400px`, width: `100%` }}
-        objectPosition={`bottom center`}
-      />
+      {image ? (
+        <GatsbyImage
+          image={getImage(image?.localFile?.childImageSharp)}
+          alt={`PM Group`}
+          style={{ gridArea: "1/1", maxHeight: `400px`, width: `100%` }}
+          objectPosition={`bottom center`}
+        />
+      ) : null}
     </Box>
   )
 }
