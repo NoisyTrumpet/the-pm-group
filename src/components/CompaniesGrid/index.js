@@ -5,9 +5,6 @@ import Link from "../Link/Link"
 import "./styles.scss"
 
 const CompaniesGrid = ({ companies, image }) => {
-  console.log(companies)
-  console.log(image)
-
   return (
     <Box position={`relative`} display="grid" placeItems="center">
       <Box
