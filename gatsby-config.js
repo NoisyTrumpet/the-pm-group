@@ -131,9 +131,9 @@ module.exports = {
             limit:
               process.env.NODE_ENV === "development"
                 ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
-                  50
+                50
                 : // and we don't actually need more than 5000 in production for this particular site
-                  500,
+                500,
           },
         },
       },
@@ -224,8 +224,8 @@ module.exports = {
         name: `the-pmg-group`,
         short_name: `pmg`,
         start_url: `https://thepmgrp.com/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#201D1D`,
+        theme_color: `#201D1D`,
         display: `minimal-ui`,
         icon: `./src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

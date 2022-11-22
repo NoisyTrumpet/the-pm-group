@@ -6,7 +6,7 @@ import Logo from "../SVG/Logo"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
+      background: `#201D1D`,
       marginBottom: `1.45rem`,
     }}
   >
