@@ -50,7 +50,11 @@ const IndexPage = ({ data: { wpPage } }) => {
   const { title: secondaryCTAText, image: secondaryCTAImage } = secondaryCta
 
   // How we got here:
-  const { title: gotHereTitle, content: gotHereText, image: gotHereImage } = howWeGotHere
+  const {
+    title: gotHereTitle,
+    content: gotHereText,
+    image: gotHereImage,
+  } = howWeGotHere
   // Contact Section
   // Custom Schema
   const schema = wpPage?.customSchema.customSchema
@@ -249,20 +253,20 @@ export const pageQuery = graphql`
             localFile {
               childImageSharp {
                 gatsbyImageData(
-                  quality: 60
+                  quality: 90
                   formats: [WEBP, PNG]
                   layout: CONSTRAINED
                   placeholder: NONE
                 )
               }
-              childrenImageSharp {
-                gatsbyImageData(
-                  quality: 60
-                  formats: [WEBP, PNG]
-                  layout: CONSTRAINED
-                  placeholder: NONE
-                )
-              }
+              # childrenImageSharp {
+              #   gatsbyImageData(
+              #     quality: 90
+              #     formats: [WEBP, PNG]
+              #     layout: CONSTRAINED
+              #     placeholder: NONE
+              #   )
+              # }
             }
           }
         }
