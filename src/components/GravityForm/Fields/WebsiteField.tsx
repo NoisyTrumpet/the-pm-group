@@ -20,7 +20,6 @@ import * as React from "react"
 export const WEBSITE_FIELD_FIELDS = graphql`
   fragment WebsiteFieldFields on WpWebsiteField {
     id
-    formId
     label
     description
     cssClass

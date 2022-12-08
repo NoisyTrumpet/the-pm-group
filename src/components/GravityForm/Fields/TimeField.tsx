@@ -10,7 +10,6 @@ import * as React from "react"
 export const TIME_FIELD_FIELDS = graphql`
   fragment TimeFieldFields on WpTimeField {
     id
-    formId
     label
     description
     cssClass

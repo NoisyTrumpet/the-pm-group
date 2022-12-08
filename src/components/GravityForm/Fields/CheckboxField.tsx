@@ -14,7 +14,6 @@ import * as React from "react"
 export const CHECKBOX_FIELD_FIELDS = graphql`
   fragment CheckboxFieldFields on WpCheckboxField {
     id
-    formId
     label
     description
     cssClass

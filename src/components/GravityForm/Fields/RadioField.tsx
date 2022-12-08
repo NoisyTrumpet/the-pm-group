@@ -10,7 +10,6 @@ import * as React from "react"
 export const RADIO_FIELD_FIELDS = graphql`
   fragment RadioFieldFields on WpRadioField {
     id
-    formId
     label
     description
     cssClass

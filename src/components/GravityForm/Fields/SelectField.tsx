@@ -18,7 +18,6 @@ import * as React from "react"
 export const SELECT_FIELD_FIELDS = graphql`
   fragment SelectFieldFields on WpSelectField {
     id
-    formId
     label
     description
     cssClass

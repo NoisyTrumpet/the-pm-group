@@ -7023,8 +7023,8 @@ export type RootMutation = {
   sendPasswordResetEmail?: Maybe<SendPasswordResetEmailPayload>
   /** The payload for the submitGravityFormsDraftEntry mutation */
   submitGravityFormsDraftEntry?: Maybe<SubmitGravityFormsDraftEntryPayload>
-  /** The payload for the submitGravityFormsForm mutation */
-  submitGravityFormsForm?: Maybe<SubmitGravityFormsFormPayload>
+  /** The payload for the submitGfForm mutation */
+  submitGfForm?: Maybe<SubmitGravityFormsFormPayload>
   /** The payload for the UpdateCategory mutation */
   updateCategory?: Maybe<UpdateCategoryPayload>
   /** The payload for the updateComment mutation */
@@ -9185,7 +9185,7 @@ export type SubmitGravityFormsDraftEntryPayload = {
   errors?: Maybe<Array<Maybe<FieldError>>>
 }
 
-/** Input for the submitGravityFormsForm mutation */
+/** Input for the submitGfForm mutation */
 export type SubmitGravityFormsFormInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
   clientMutationId?: Maybe<Scalars["String"]>
@@ -9205,7 +9205,7 @@ export type SubmitGravityFormsFormInput = {
   targetPage?: Maybe<Scalars["Int"]>
 }
 
-/** The payload for the submitGravityFormsForm mutation */
+/** The payload for the submitGfForm mutation */
 export type SubmitGravityFormsFormPayload = {
   __typename?: "SubmitGravityFormsFormPayload"
   /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */

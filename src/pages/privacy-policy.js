@@ -11,10 +11,10 @@ const PrivacyPolicy = ({ data: { wpPage } }) => {
   // Hero Title
   const privacyTitle = "Privacy Policy"
   // Privacy Policy Date & Description
-  const date = wpPage.PrivacyFields.effectiveDate
-  const description = wpPage.PrivacyFields.policyDescription
+  const date = wpPage.privacyFields.effectiveDate
+  const description = wpPage.privacyFields.policyDescription
   //  Repeater content
-  const policies = wpPage.PrivacyFields.policyContent.policyRepeater
+  const policies = wpPage.privacyFields.policyContent.policyRepeater
   if (wpPage.seo) {
     // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
     const schemaRaw = wpPage.seo.schema.raw.replace(
@@ -96,7 +96,7 @@ export const privacyPolicyQuery = graphql`
           raw
         }
       }
-      PrivacyFields {
+      privacyFields {
         effectiveDate
         policyDescription
         policyContent {

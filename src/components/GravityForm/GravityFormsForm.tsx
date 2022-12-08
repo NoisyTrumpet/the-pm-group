@@ -12,11 +12,11 @@ import React, { useEffect } from "react"
 import GravityFormsField from "./GravityFormsField"
 
 export const GRAVITY_FORM_FIELDS = graphql`
-  fragment GravityFormFields on WpGravityFormsForm {
-    formId
+  fragment GravityFormFields on WpGfForm {
+    id
     title
     description
-    button {
+    submitButton {
       text
     }
     confirmations {
@@ -47,9 +47,9 @@ export const GRAVITY_FORM_FIELDS = graphql`
 `
 
 const SUBMIT_FORM = gql`
-  mutation submitForm($formId: Int!, $fieldValues: [FieldValuesInput]) {
-    submitGravityFormsForm(
-      input: { formId: $formId, fieldValues: $fieldValues }
+  mutation submitForm($id: Int!, $fieldValues: [FieldValuesInput]) {
+    submitGfForm(
+      input: { id: $id, fieldValues: $fieldValues }
     ) {
       entryId
       errors {
@@ -67,8 +67,8 @@ interface Props {
 export default function Form({ form }: Props) {
   const toast = useToast()
   const [submitForm, { data, loading, error }] = useMutation(SUBMIT_FORM)
-  const haveEntryId = Boolean(data?.submitGravityFormsForm?.entryId)
-  const haveFieldErrors = Boolean(data?.submitGravityFormsForm?.errors?.length)
+  const haveEntryId = Boolean(data?.submitGfForm?.entryId)
+  const haveFieldErrors = Boolean(data?.submitGfForm?.errors?.length)
   const wasSuccessfullySubmitted = haveEntryId && !haveFieldErrors
   const defaultConfirmation = form.confirmations?.find(
     confirmation => confirmation?.isDefault
@@ -82,7 +82,7 @@ export default function Form({ form }: Props) {
 
     submitForm({
       variables: {
-        formId: form.formId,
+        id: form.id,
         fieldValues: state,
       },
     }).catch(error => {
@@ -102,7 +102,7 @@ export default function Form({ form }: Props) {
             Oops! Looks like there was an error
           </Text>
           <Text>
-            {data.submitGravityFormsForm.errors.filter(
+            {data.submitGfForm.errors.filter(
               (error: FieldError) => error.id === id
             ) || "Error!"}
           </Text>
@@ -147,7 +147,7 @@ export default function Form({ form }: Props) {
       ) : null}
       <Box display="flex" mt={4}>
         <Button type="submit" variant="primary" disabled={loading} ml="auto">
-          {form?.button?.text || "Submit"}
+          {form?.submitButton?.text || "Submit"}
         </Button>
       </Box>
     </form>

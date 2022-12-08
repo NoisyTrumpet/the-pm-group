@@ -18,7 +18,6 @@ import * as React from "react"
 export const EMAIL_FIELD_FIELDS = graphql`
   fragment EmailFieldFields on WpEmailField {
     id
-    formId
     label
     description
     cssClass

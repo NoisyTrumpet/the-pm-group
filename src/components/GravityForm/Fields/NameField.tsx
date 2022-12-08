@@ -23,7 +23,6 @@ import * as React from "react"
 export const NAME_FIELD_FIELDS = graphql`
   fragment NameFieldFields on WpNameField {
     id
-    formId
     label
     description
     cssClass

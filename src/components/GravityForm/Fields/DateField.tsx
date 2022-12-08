@@ -10,7 +10,6 @@ import * as React from "react"
 export const DATE_FIELD_FIELDS = graphql`
   fragment DateFieldFields on WpDateField {
     id
-    formId
     label
     description
     cssClass

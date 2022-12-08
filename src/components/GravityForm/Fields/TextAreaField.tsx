@@ -21,7 +21,6 @@ import * as React from "react"
 export const TEXT_AREA_FIELD_FIELDS = graphql`
   fragment TextAreaFieldFields on WpTextAreaField {
     id
-    formId
     label
     description
     cssClass

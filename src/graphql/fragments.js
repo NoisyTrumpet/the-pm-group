@@ -1,11 +1,11 @@
 import { graphql } from "gatsby"
 
-export const WpGravityFormsFormFragment = graphql`
-  fragment WpGravityFormsFormFragment on WpGravityFormsForm {
-    formId
+export const WpGfFormFragment = graphql`
+  fragment WpGfFormFragment on WpGfForm {
+    id
     title
     description
-    button {
+    submitButton {
       text
     }
     confirmations {
@@ -49,7 +49,6 @@ export const WpGravityFormsFormFragment = graphql`
         }
         ... on WpTextAreaField {
           id
-          formId
           label
           description
           cssClass

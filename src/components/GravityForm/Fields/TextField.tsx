@@ -18,7 +18,6 @@ import * as React from "react"
 export const TEXT_FIELD_FIELDS = graphql`
   fragment TextFieldFields on WpTextField {
     id
-    formId
     label
     description
     cssClass
