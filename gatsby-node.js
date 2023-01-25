@@ -186,6 +186,6 @@ exports.createResolvers = async ({ createResolvers, schema }) =>
   })
 
 // Partytown Prebuild
-exports.onPreBuild = async () => {
-  await copyLibFiles(path.join(__dirname, "static", "~partytown"))
-}
+// exports.onPreBuild = async () => {
+//   await copyLibFiles(path.join(__dirname, "static", "~partytown"))
+// }
