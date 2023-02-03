@@ -5,13 +5,13 @@ import React from "react"
 
 const FormComponent = ({ formId, id, title, subtitle, content }) => {
   const data = useStaticQuery(graphql`
-    query {
-      wpGravityFormsForm(formId: { eq: 1 }) {
+    query FormQuery {
+      wpGfForm(title: { eq: "Contact" }) {
         ...GravityFormFields
       }
     }
   `)
-  const { wpGravityFormsForm: form } = data
+  const { wpGfForm: form } = data
 
   return (
     <Box id={id} mb={[8, 16]} mt={!title && 10} px={4} maxWidth={600}>

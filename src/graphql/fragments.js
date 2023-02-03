@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 
 export const WpGravityFormsFormFragment = graphql`
-  fragment WpGravityFormsFormFragment on WpGravityFormsForm {
+  fragment WpGravityFormsFormFragment on WpGfForm {
     formId
     title
     description

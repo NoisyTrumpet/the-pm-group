@@ -12,9 +12,7 @@ const TextImageBlock = ({
 }) => {
   const sideImage = getImage(image?.localFile?.childImageSharp)
   return (
-    <Container
-      my={8}
-    >
+    <Container my={8}>
       <Grid
         className="text-block-component"
         templateColumns={[
@@ -30,7 +28,7 @@ const TextImageBlock = ({
           className="text-block-copy-wrapper"
           py={[12, 18, 20]}
           px={[12, 18, isSmall ? 12 : 20, isSmall ? 12 : 32]}
-        // bg={`#f0f0f0`}
+          // bg={`#f0f0f0`}
         >
           <Heading
             as="h2"
@@ -44,11 +42,13 @@ const TextImageBlock = ({
 
           <Box color="black" dangerouslySetInnerHTML={{ __html: content }} />
         </Box>
-        <Box display="grid" position="relative"
+        <Box
+          display="grid"
+          position="relative"
           sx={{
             img: {
               objectFit: "contain",
-            }
+            },
           }}
         >
           {sideImage ? (
@@ -59,16 +59,14 @@ const TextImageBlock = ({
               objectFit="contain"
               loading={loading}
               objectPosition={isLeft && "left"}
-            // style={{
-            //   gridArea: "1/1",
-            //   width: `100%`,
-            //   maxWidth: "100%",
-            //   objectFit: "contain",
-            // }}
+              // style={{
+              //   gridArea: "1/1",
+              //   width: `100%`,
+              //   maxWidth: "100%",
+              //   objectFit: "contain",
+              // }}
             />
-          ) : (
-            null
-          )}
+          ) : null}
         </Box>
       </Grid>
     </Container>

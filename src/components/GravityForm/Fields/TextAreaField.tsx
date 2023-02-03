@@ -21,7 +21,6 @@ import * as React from "react"
 export const TEXT_AREA_FIELD_FIELDS = graphql`
   fragment TextAreaFieldFields on WpTextAreaField {
     id
-    formId
     label
     description
     cssClass
@@ -32,12 +31,13 @@ export const TEXT_AREA_FIELD_FIELDS = graphql`
 interface Props {
   field: TextAreaFieldType
   fieldErrors: FieldError[]
+  formId: number
 }
 
 const DEFAULT_VALUE = ""
 
-export default function TextAreaField({ field, fieldErrors }: Props) {
-  const { id, formId, type, label, description, cssClass, isRequired } = field
+export default function TextAreaField({ formId, field, fieldErrors }: Props) {
+  const { id, type, label, description, cssClass, isRequired } = field
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(
