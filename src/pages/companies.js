@@ -62,7 +62,6 @@ export const companiesPageQuery = graphql`
     wpPage(title: { eq: "Companies" }) {
       title
       uri
-      nodeType
       seo {
         title
         metaDesc

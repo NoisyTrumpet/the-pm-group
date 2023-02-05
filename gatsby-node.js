@@ -29,7 +29,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               node {
                 id
                 uri
-                nodeType
                 slug
                 name
               }

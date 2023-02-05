@@ -92,7 +92,6 @@ export const workPageQuery = graphql`
       title
       slug
       uri
-      nodeType
       ourWorkFields {
         workGrid {
           gridItems {

@@ -105,7 +105,6 @@ export const pageQuery = graphql`
     wpPage(title: { eq: "Home" }) {
       title
       uri
-      nodeType
       customSchema {
         customSchema
       }

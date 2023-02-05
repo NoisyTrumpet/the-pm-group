@@ -90,7 +90,6 @@ export const aboutPageQuery = graphql`
     wpPage(title: { eq: "About" }) {
       title
       uri
-      nodeType
       slug
       seo {
         title

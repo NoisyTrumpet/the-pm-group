@@ -88,7 +88,6 @@ export const communityPageQuery = graphql`
     wpPage(title: { eq: "Community" }) {
       title
       uri
-      nodeType
       slug
       seo {
         title

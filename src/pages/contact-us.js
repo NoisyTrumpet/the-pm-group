@@ -61,7 +61,6 @@ export const contactPageQuery = graphql`
     wpPage(title: { eq: "Contact Us" }) {
       title
       uri
-      nodeType
       seo {
         title
         metaDesc

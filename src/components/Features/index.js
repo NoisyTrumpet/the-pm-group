@@ -40,66 +40,67 @@ const Features = ({ features, isAbout }) => {
       >
         {isAbout
           ? features.map(feature => (
-              <Feature
-                title={feature.title}
-                icon={<FiMoon color={`black`} />}
-                key={feature.title}
-              >
-                <Box
-                  dangerouslySetInnerHTML={{ __html: feature.content }}
-                  mb={
-                    feature.title === "Events, Promos and Fundraisers" && "30px"
-                  }
-                  justifyContent={
-                    feature.title === "Events, Promos and Fundraisers" &&
-                    "center"
-                  }
-                  textAlign={
-                    feature.title === "Events, Promos and Fundraisers" && "left"
-                  }
-                />
-              </Feature>
-            ))
+            <Feature
+              title={feature.title}
+              icon={<FiMoon color={`black`} />}
+              key={feature.title}
+              id={`feature-${feature.title}`}
+            >
+              <Box
+                dangerouslySetInnerHTML={{ __html: feature.content }}
+                mb={
+                  feature.title === "Events, Promos and Fundraisers" && "30px"
+                }
+                justifyContent={
+                  feature.title === "Events, Promos and Fundraisers" &&
+                  "center"
+                }
+                textAlign={
+                  feature.title === "Events, Promos and Fundraisers" && "left"
+                }
+              />
+            </Feature>
+          ))
           : features.serviceEntry.map(feature => (
-              <Feature
-                title={feature.title}
-                icon={<Icon title={feature.title} />}
-                key={feature.title}
-              >
-                <Box
-                  dangerouslySetInnerHTML={{ __html: feature.content }}
-                  mb={
-                    feature.title === "Events, Promos and Fundraisers" && "30px"
-                  }
-                  justifyContent={
-                    feature.title === "Events, Promos and Fundraisers" &&
-                    "center"
-                  }
-                  textAlign={
-                    feature.title === "Events, Promos and Fundraisers" && "left"
-                  }
-                />
-                {feature.title === "Events, Promos and Fundraisers" && (
-                  <Link
-                    to={features.ctaLink.url}
-                    mt={10}
-                    bg={`secondary`}
-                    px={6}
-                    py={4}
-                    color={`black`}
-                    mx={`auto`}
-                    textAlign="center"
-                    textTransform={`uppercase`}
-                    _hover={{
-                      background: `black`,
-                      color: `secondary`,
-                    }}
-                  >
-                    {features.ctaText}
-                  </Link>
-                )}
-              </Feature>
-            ))}
+            <Feature
+              title={feature.title}
+              icon={<Icon title={feature.title} />}
+              key={feature.title}
+            >
+              <Box
+                dangerouslySetInnerHTML={{ __html: feature.content }}
+                mb={
+                  feature.title === "Events, Promos and Fundraisers" && "30px"
+                }
+                justifyContent={
+                  feature.title === "Events, Promos and Fundraisers" &&
+                  "center"
+                }
+                textAlign={
+                  feature.title === "Events, Promos and Fundraisers" && "left"
+                }
+              />
+              {feature.title === "Events, Promos and Fundraisers" && (
+                <Link
+                  to={features.ctaLink.url}
+                  mt={10}
+                  bg={`secondary`}
+                  px={6}
+                  py={4}
+                  color={`black`}
+                  mx={`auto`}
+                  textAlign="center"
+                  textTransform={`uppercase`}
+                  _hover={{
+                    background: `black`,
+                    color: `secondary`,
+                  }}
+                >
+                  {features.ctaText}
+                </Link>
+              )}
+            </Feature>
+          ))}
       </SimpleGrid>
     </Box>
   )
