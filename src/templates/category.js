@@ -99,6 +99,7 @@ const Category = ({ data }) => {
                 const { videoLink, videoCoverImage } = videoFields
 
                 const isVideo = videoLink ? true : false
+                console.log(item)
 
                 return (
                   <Fade bottom key={id}>
@@ -109,8 +110,8 @@ const Category = ({ data }) => {
                         isVideo
                           ? videoCoverImage?.localFile?.childImageSharp
                           : theWorkImage?.photoLink?.localFile
-                              ?.childImageSharp ||
-                            item.featuredImage?.node?.localFile?.childImageSharp
+                            ?.childImageSharp ||
+                          item.featuredImage?.node?.localFile?.childImageSharp
                       }
                       media={
                         item.videoFields.videoLink ||
@@ -144,6 +145,7 @@ export const categoryQuery = graphql`
             menuOrder
             featuredImage {
               node {
+                mediaItemUrl
                 localFile {
                   childImageSharp {
                     gatsbyImageData(
