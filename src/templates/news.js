@@ -265,6 +265,15 @@ export const newsQuery = graphql`
             node {
               srcSet
               sourceUrl
+              localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  quality: 90
+                  layout: CONSTRAINED
+                  formats: [WEBP, PNG]
+                  placeholder: NONE
+                )
+              }
             }
           }
         }
