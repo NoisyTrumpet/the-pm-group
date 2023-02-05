@@ -14,7 +14,6 @@ import * as React from "react"
 export const CHECKBOX_FIELD_FIELDS = graphql`
   fragment CheckboxFieldFields on WpCheckboxField {
     id
-    formId
     label
     description
     cssClass
@@ -31,13 +30,13 @@ export const CHECKBOX_FIELD_FIELDS = graphql`
 interface Props {
   field: CheckboxFieldType
   fieldErrors: FieldError[]
+  formId: number
 }
 
 const DEFAULT_VALUE: CheckboxInput[] = []
 
-export default function CheckboxField({ field, fieldErrors }: Props) {
-  const { id, formId, type, label, description, cssClass, inputs, choices } =
-    field
+export default function CheckboxField({ formId, field, fieldErrors }: Props) {
+  const { id, type, label, description, cssClass, inputs, choices } = field
   const checkboxInputs =
     choices?.map((choice, index) => ({ ...choice, id: inputs?.[index]?.id })) ||
     []

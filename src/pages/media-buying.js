@@ -90,7 +90,6 @@ export const mediaBuyingPageQuery = graphql`
     wpPage(title: { eq: "Media Buying" }) {
       title
       uri
-      nodeType
       seo {
         title
         metaDesc

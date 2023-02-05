@@ -90,7 +90,6 @@ export const expertisePageQuery = graphql`
     wpPage(title: { eq: "Expertise" }) {
       title
       uri
-      nodeType
       slug
       seo {
         title

@@ -18,7 +18,6 @@ import * as React from "react"
 export const EMAIL_FIELD_FIELDS = graphql`
   fragment EmailFieldFields on WpEmailField {
     id
-    formId
     label
     description
     cssClass
@@ -30,21 +29,14 @@ export const EMAIL_FIELD_FIELDS = graphql`
 interface Props {
   field: EmailFieldType
   fieldErrors: FieldError[]
+  formId: number
 }
 
 const DEFAULT_VALUE = ""
 
-export default function EmailField({ field, fieldErrors }: Props) {
-  const {
-    id,
-    formId,
-    type,
-    label,
-    description,
-    cssClass,
-    isRequired,
-    placeholder,
-  } = field
+export default function EmailField({ formId, field, fieldErrors }: Props) {
+  const { id, type, label, description, cssClass, isRequired, placeholder } =
+    field
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(

@@ -19,37 +19,56 @@ import WebsiteField from "./Fields/WebsiteField"
 interface Props {
   field: FormField
   fieldErrors: FieldError[]
+  formId: number
 }
 
-export default function Field({ field, fieldErrors }: Props) {
+export default function Field({ field, formId, fieldErrors }: Props) {
   switch (field.type) {
-    case "address":
-      return <AddressField field={field} fieldErrors={fieldErrors} />
-    case "checkbox":
-      return <CheckboxField field={field} fieldErrors={fieldErrors} />
-    case "date":
+    case "ADDRESS":
+      return (
+        <AddressField formId={formId} field={field} fieldErrors={fieldErrors} />
+      )
+    case "CHECKBOX":
+      return (
+        <CheckboxField
+          formId={formId}
+          field={field}
+          fieldErrors={fieldErrors}
+        />
+      )
+    case "DATE":
       return <DateField field={field} fieldErrors={fieldErrors} />
-    case "email":
-      return <EmailField field={field} fieldErrors={fieldErrors} />
+    case "EMAIL":
+      return (
+        <EmailField formId={formId} field={field} fieldErrors={fieldErrors} />
+      )
     // case 'multiselect':
     //   return <MultiSelectField field={field} fieldErrors={fieldErrors} />
-    case "name":
+    case "NAME":
       return <NameField field={field} fieldErrors={fieldErrors} />
-    case "phone":
+    case "PHONE":
       return <PhoneField field={field} fieldErrors={fieldErrors} />
     case "radio":
       return <RadioField field={field} fieldErrors={fieldErrors} />
     case "select":
       return <SelectField field={field} fieldErrors={fieldErrors} />
-    case "text":
-      return <TextField field={field} fieldErrors={fieldErrors} />
-    case "textarea":
-      return <TextAreaField field={field} fieldErrors={fieldErrors} />
-    case "time":
+    case "TEXT":
+      return (
+        <TextField formId={formId} field={field} fieldErrors={fieldErrors} />
+      )
+    case "TEXTAREA":
+      return (
+        <TextAreaField
+          formId={formId}
+          field={field}
+          fieldErrors={fieldErrors}
+        />
+      )
+    case "TIME":
       return <TimeField field={field} fieldErrors={fieldErrors} />
-    case "website":
+    case "WEBSITE":
       return <WebsiteField field={field} fieldErrors={fieldErrors} />
-    case "fileupload":
+    case "FILEUPLOAD":
       return <FileUploadField field={field} fieldErrors={fieldErrors} />
     default:
       return <p>{`Field type not supported: ${field.type}.`}</p>

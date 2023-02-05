@@ -194,7 +194,6 @@ export const newsQuery = graphql`
     wpPage(title: { eq: "Newswire" }) {
       title
       uri
-      nodeType
       seo {
         breadcrumbs {
           text
@@ -250,7 +249,6 @@ export const newsQuery = graphql`
     allWpPost(sort: { date: DESC }, limit: $limit, skip: $skip) {
       edges {
         node {
-          nodeType
           content
           excerpt
           link

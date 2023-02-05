@@ -14,7 +14,6 @@ import * as React from "react"
 export const ADDRESS_FIELD_FIELDS = graphql`
   fragment AddressFieldFields on WpAddressField {
     id
-    formId
     label
     description
     cssClass
@@ -29,6 +28,7 @@ export const ADDRESS_FIELD_FIELDS = graphql`
 interface Props {
   field: AddressFieldType
   fieldErrors: FieldError[]
+  formId: number
 }
 
 const DEFAULT_VALUE: AddressInput = {}
@@ -41,8 +41,8 @@ const AUTOCOMPLETE_ATTRIBUTES: { [key: string]: string } = {
   country: "country-name",
 }
 
-export default function AddressField({ field, fieldErrors }: Props) {
-  const { id, formId, type, label, description, cssClass, inputs } = field
+export default function AddressField({ field, fieldErrors, formId }: Props) {
+  const { id, type, label, description, cssClass, inputs } = field
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(

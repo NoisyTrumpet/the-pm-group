@@ -10,7 +10,6 @@ import * as React from "react"
 export const DATE_FIELD_FIELDS = graphql`
   fragment DateFieldFields on WpDateField {
     id
-    formId
     label
     description
     cssClass
@@ -27,16 +26,8 @@ interface Props {
 const DEFAULT_VALUE = ""
 
 export default function DateField({ field, fieldErrors }: Props) {
-  const {
-    id,
-    formId,
-    type,
-    label,
-    description,
-    cssClass,
-    isRequired,
-    placeholder,
-  } = field
+  const { id, type, label, description, cssClass, isRequired, placeholder } =
+    field
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(

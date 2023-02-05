@@ -7,7 +7,7 @@ import BlogGrid from "../components/BlogGrid"
 import { graphql } from "gatsby"
 
 const BlogPage = ({ data, pageContext }) => {
-  const { title, slug, seo, content, related_posts } = data.wpPost
+  const { title, slug, seo, content, relatedPosts } = data.wpPost
 
   const { breadcrumb } = pageContext
 
@@ -92,12 +92,12 @@ const BlogPage = ({ data, pageContext }) => {
             },
           }}
         />
-        {related_posts.nodes.length > 0 && (
+        {relatedPosts.nodes.length > 0 && (
           <>
             <Heading as="h2" mt={8}>
               Related Posts
             </Heading>
-            <BlogGrid posts={related_posts.nodes} />
+            <BlogGrid posts={relatedPosts.nodes} />
           </>
         )}
       </Container>
@@ -113,6 +113,7 @@ export const relatedPostsQuery = graphql`
       content
       title
       slug
+      id
       seo {
         breadcrumbs {
           text
@@ -144,7 +145,7 @@ export const relatedPostsQuery = graphql`
           raw
         }
       }
-      related_posts {
+      relatedPosts {
         nodes {
           categories {
             nodes {

@@ -50,7 +50,11 @@ const IndexPage = ({ data: { wpPage } }) => {
   const { title: secondaryCTAText, image: secondaryCTAImage } = secondaryCta
 
   // How we got here:
-  const { title: gotHereTitle, content: gotHereText, image: gotHereImage } = howWeGotHere
+  const {
+    title: gotHereTitle,
+    content: gotHereText,
+    image: gotHereImage,
+  } = howWeGotHere
   // Contact Section
   // Custom Schema
   const schema = wpPage?.customSchema.customSchema
@@ -101,7 +105,6 @@ export const pageQuery = graphql`
     wpPage(title: { eq: "Home" }) {
       title
       uri
-      nodeType
       customSchema {
         customSchema
       }

@@ -7,8 +7,6 @@
 
 // You can delete this file if you're not using it
 const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
-const { copyLibFiles } = require("@builder.io/partytown/utils")
 const redirects = require("./redirects.json")
 const fetch = (...args) =>
   import(`node-fetch`).then(({ default: fetch }) => fetch(...args))
@@ -31,7 +29,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               node {
                 id
                 uri
-                nodeType
                 slug
                 name
               }
@@ -129,63 +126,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 }
-// POSTS & YARPP Tuning
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === `Post`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
-}
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-  const typeDefs = `
-    type WpPost implements Node {
-      related_posts: WpNodePost!
-    }
-    type WpNodePost implements Node {
-      nodes: [WpPost]
-    }
-  `
-  createTypes(typeDefs)
-}
-
-exports.createResolvers = async ({ createResolvers, schema }) =>
-  createResolvers({
-    WpPost: {
-      related_posts: {
-        resolve: async (source, args, context, info) => {
-          const { databaseId } = source
-
-          const response = await fetch(
-            `${process.env.BASE_URL}/wp-json/yarpp/v1/related/${databaseId}?limit=3`
-          ).then(res => res.json())
-
-          if (response && response.length) {
-            const { entries, totalCount } = await context.nodeModel.findAll({
-              query: {
-                filter: {
-                  databaseId: {
-                    in: response.map(({ id }) => id),
-                  },
-                },
-                limit: 3,
-              },
-              type: "WpPost",
-            })
-            return { nodes: Array.from(entries) }
-          } else return { nodes: [] }
-        },
-      },
-    },
-  })
-
-// Partytown Prebuild
-// exports.onPreBuild = async () => {
-//   await copyLibFiles(path.join(__dirname, "static", "~partytown"))
-// }

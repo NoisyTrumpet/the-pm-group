@@ -144,6 +144,7 @@ export const categoryQuery = graphql`
             menuOrder
             featuredImage {
               node {
+                mediaItemUrl
                 localFile {
                   childImageSharp {
                     gatsbyImageData(

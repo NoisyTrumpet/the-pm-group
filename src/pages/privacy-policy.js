@@ -65,7 +65,6 @@ export const privacyPolicyQuery = graphql`
   query GET_PRIVACY_POLICY {
     wpPage(title: { eq: "Privacy Policy" }) {
       uri
-      nodeType
       slug
       title
       seo {

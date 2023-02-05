@@ -20,7 +20,6 @@ import * as React from "react"
 export const FILE_UPLOAD_FIELD_FIELDS = graphql`
   fragment FileUploadFieldFields on WpFileUploadField {
     id
-    formId
     label
     description
     cssClass

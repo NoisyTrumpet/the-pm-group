@@ -12,11 +12,12 @@ import React, { useEffect } from "react"
 import GravityFormsField from "./GravityFormsField"
 
 export const GRAVITY_FORM_FIELDS = graphql`
-  fragment GravityFormFields on WpGravityFormsForm {
-    formId
+  fragment GravityFormFields on WpGfForm {
+    id
+    databaseId
     title
     description
-    button {
+    submitButton {
       text
     }
     confirmations {
@@ -25,7 +26,6 @@ export const GRAVITY_FORM_FIELDS = graphql`
     }
     formFields {
       nodes {
-        id
         type
         ...AddressFieldFields
         ...CheckboxFieldFields
@@ -47,11 +47,14 @@ export const GRAVITY_FORM_FIELDS = graphql`
 `
 
 const SUBMIT_FORM = gql`
-  mutation submitForm($formId: Int!, $fieldValues: [FieldValuesInput]) {
-    submitGravityFormsForm(
-      input: { formId: $formId, fieldValues: $fieldValues }
-    ) {
-      entryId
+  mutation submitGfForm($input: SubmitGfFormInput!) {
+    submitGfForm(input: $input) {
+      confirmation {
+        message
+      }
+      entry {
+        formId
+      }
       errors {
         id
         message
@@ -66,12 +69,12 @@ interface Props {
 
 export default function Form({ form }: Props) {
   const toast = useToast()
-  const [submitForm, { data, loading, error }] = useMutation(SUBMIT_FORM)
-  const haveEntryId = Boolean(data?.submitGravityFormsForm?.entryId)
-  const haveFieldErrors = Boolean(data?.submitGravityFormsForm?.errors?.length)
+  const [submutGfForm, { data, loading, error }] = useMutation(SUBMIT_FORM)
+  const haveEntryId = Boolean(data?.submitGfForm?.entry)
+  const haveFieldErrors = Boolean(data?.submitGfForm?.errors?.length)
   const wasSuccessfullySubmitted = haveEntryId && !haveFieldErrors
   const defaultConfirmation = form.confirmations?.find(
-    confirmation => confirmation?.isDefault
+    (confirmation: { isDefault: boolean }) => confirmation?.isDefault
   )
   const formFields = form.formFields?.nodes || []
   const { state } = useGravityForm()
@@ -80,10 +83,12 @@ export default function Form({ form }: Props) {
     event.preventDefault()
     if (loading) return
 
-    submitForm({
+    submutGfForm({
       variables: {
-        formId: form.formId,
-        fieldValues: state,
+        input: {
+          id: form.databaseId,
+          fieldValues: state,
+        },
       },
     }).catch(error => {
       console.error(error)
@@ -92,6 +97,9 @@ export default function Form({ form }: Props) {
 
   function getFieldErrors(id: number): FieldError[] {
     if (!haveFieldErrors) return []
+    const filteredErrors = data.submitGfForm.errors.filter(
+      (error: FieldError) => error.id === id
+    )
     toast({
       position: "bottom",
       duration: 9000,
@@ -101,14 +109,11 @@ export default function Form({ form }: Props) {
           <Text fontWeight="bold" fontFamily="heading">
             Oops! Looks like there was an error
           </Text>
-          <Text>
-            {data.submitGravityFormsForm.errors.filter(
-              (error: FieldError) => error.id === id
-            ) || "Error!"}
-          </Text>
+          <Text>{filteredErrors.length > 0 ? filteredErrors : "Error!"}</Text>
         </Box>
       ),
     })
+    return filteredErrors
   }
 
   useEffect(() => {
@@ -138,6 +143,7 @@ export default function Form({ form }: Props) {
           key={field?.id}
           field={field as FormField}
           fieldErrors={getFieldErrors(Number(field?.id))}
+          formId={1}
         />
       ))}
       {error ? (
