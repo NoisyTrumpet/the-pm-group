@@ -99,7 +99,6 @@ const Category = ({ data }) => {
                 const { videoLink, videoCoverImage } = videoFields
 
                 const isVideo = videoLink ? true : false
-                console.log(item)
 
                 return (
                   <Fade bottom key={id}>
