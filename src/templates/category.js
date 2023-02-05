@@ -109,8 +109,8 @@ const Category = ({ data }) => {
                         isVideo
                           ? videoCoverImage?.localFile?.childImageSharp
                           : theWorkImage?.photoLink?.localFile
-                            ?.childImageSharp ||
-                          item.featuredImage?.node?.localFile?.childImageSharp
+                              ?.childImageSharp ||
+                            item.featuredImage?.node?.localFile?.childImageSharp
                       }
                       media={
                         item.videoFields.videoLink ||

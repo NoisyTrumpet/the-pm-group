@@ -113,6 +113,7 @@ export const relatedPostsQuery = graphql`
       content
       title
       slug
+      id
       seo {
         breadcrumbs {
           text
