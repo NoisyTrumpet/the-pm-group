@@ -116,7 +116,8 @@ const Category = ({ data }) => {
                         type={isVideo ? "Television" : name}
                         image={
                           isVideo
-                            ? videoCoverImage?.localFile?.childImageSharp
+                            ? videoCoverImage?.localFile?.childImageSharp ||
+                            featuredImage?.node?.localFile?.childImageSharp
                             : theWorkImage?.photoLink?.localFile
                               ?.childImageSharp ||
                             featuredImage?.node?.localFile?.childImageSharp
