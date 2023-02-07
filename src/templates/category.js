@@ -93,33 +93,44 @@ const Category = ({ data }) => {
             gap={3}
           >
             {works &&
-              works.map(({ title, id, videoFields, theWorkImage, featuredImage, workAudio }, i) => {
+              works.map(
+                (
+                  {
+                    title,
+                    id,
+                    videoFields,
+                    theWorkImage,
+                    featuredImage,
+                    workAudio,
+                  },
+                  i
+                ) => {
+                  const { videoLink, videoCoverImage } = videoFields
 
-                const { videoLink, videoCoverImage } = videoFields
+                  const isVideo = videoLink ? true : false
 
-                const isVideo = videoLink ? true : false
-
-                return (
-                  <Fade bottom key={`${id}-${i}-work-item`}>
-                    <WorkItem
-                      title={title}
-                      type={isVideo ? "Television" : name}
-                      image={
-                        isVideo
-                          ? videoCoverImage?.localFile?.childImageSharp
-                          : theWorkImage?.photoLink?.localFile
-                            ?.childImageSharp ||
-                          featuredImage?.node?.localFile?.childImageSharp
-                      }
-                      media={
-                        videoFields.videoLink ||
-                        workAudio.radioClip?.link ||
-                        ""
-                      }
-                    />
-                  </Fade>
-                )
-              })}
+                  return (
+                    <Fade bottom key={`${id}-${i}-work-item`}>
+                      <WorkItem
+                        title={title}
+                        type={isVideo ? "Television" : name}
+                        image={
+                          isVideo
+                            ? videoCoverImage?.localFile?.childImageSharp
+                            : theWorkImage?.photoLink?.localFile
+                              ?.childImageSharp ||
+                            featuredImage?.node?.localFile?.childImageSharp
+                        }
+                        media={
+                          videoFields.videoLink ||
+                          workAudio.radioClip?.link ||
+                          ""
+                        }
+                      />
+                    </Fade>
+                  )
+                }
+              )}
           </Grid>
         </Box>
       </Container>

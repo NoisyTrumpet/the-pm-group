@@ -9,8 +9,7 @@ import CompanyItems from "../components/CompanyItems"
 const CompaniesPage = ({ data: { wpPage } }) => {
   // Hero Fields
   const heroTitle = wpPage.ourCompaniesFields.companiesHero.title
-  const heroImage =
-    wpPage.ourCompaniesFields.companiesHero.image.localFile.childImageSharp
+  const heroImage = wpPage.ourCompaniesFields.companiesHero.image
   // Companies
   const companies = wpPage.ourCompaniesFields.companiesItems.items
 
@@ -48,7 +47,9 @@ const CompaniesPage = ({ data: { wpPage } }) => {
   return (
     <>
       {wpPage.seo && <Seo post={wpPage} />}
-      <GenericHero title={heroTitle} image={heroImage} />
+      {heroImage && heroTitle && (
+        <GenericHero title={heroTitle} image={heroImage} />
+      )}
       <PrimaryCTA items={ctaItems} link={ctaLink} ctaText={ctaText} />
       <CompanyItems companies={companies} />
     </>
@@ -95,16 +96,7 @@ export const companiesPageQuery = graphql`
       ourCompaniesFields {
         companiesHero {
           image {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  quality: 90
-                  placeholder: NONE
-                  layout: CONSTRAINED
-                  formats: [WEBP, PNG]
-                )
-              }
-            }
+            gatsbyImage(width: 1920)
           }
           title
         }
