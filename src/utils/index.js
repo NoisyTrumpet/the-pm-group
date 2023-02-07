@@ -33,3 +33,4 @@ exports.updateSchema = (seo, breadcrumbs) => {
 
   return JSON.stringify(schemaObj)
 }
+

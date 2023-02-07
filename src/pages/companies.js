@@ -5,44 +5,37 @@ import GenericHero from "../components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
 import PrimaryCTA from "../components/PrimaryCTA"
 import CompanyItems from "../components/CompanyItems"
+import { updateSchema } from 'utils'
 
 const CompaniesPage = ({ data: { wpPage } }) => {
+  const {
+    seo,
+  } = wpPage
+  const hasSchema = seo && seo.schema && seo.schema.raw !== null
   // Hero Fields
   const heroTitle = wpPage.ourCompaniesFields.companiesHero.title
   const heroImage = wpPage.ourCompaniesFields.companiesHero.image
   // Companies
   const companies = wpPage.ourCompaniesFields.companiesItems.items
 
-  if (wpPage.seo) {
-    // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
-    const schemaRaw = wpPage.seo.schema.raw.replace(
-      /"\/"/g,
-      '"https://thepmgrp.com/"'
-    )
-    // Initalize schema object
-    const schemaObj = JSON.parse(schemaRaw)
+  if (hasSchema) {
+    const updatedSchema = updateSchema(seo, [
+      {
+        title: 'Home',
+        href: 'https://thepmgrp.com/',
+      },
+      {
+        title: wpPage.title,
+        href: `https://thepmgrp.com/${wpPage.slug}/`,
+      },
+    ])
 
-    // Modify breadcrumb list
-    const breadcrumbList = schemaObj["@graph"][1]
-    // breadcrumbList["@context"] = "https://schema.org"
-    delete breadcrumbList["@id"]
-    // Home
-    breadcrumbList["itemListElement"][0].item = {
-      "@id": `${breadcrumbList["itemListElement"][0].item}`,
-      name: "Home",
-    }
-    delete breadcrumbList["itemListElement"][0].name
-    // Companies
-    breadcrumbList["itemListElement"][1].item = {
-      "@id": `https://thepmgrp.com/${wpPage.slug}/`,
-      name: wpPage.title,
-    }
-    delete breadcrumbList["itemListElement"][1].name
+    seo.schema.raw = updatedSchema
 
-    wpPage.seo.schema.raw = JSON.stringify(schemaObj)
-    wpPage.seo.metaRobotsNoindex = "index"
-    wpPage.seo.metaRobotsNofollow = "follow"
+    seo.metaRobotsNoindex = 'index'
+    seo.metaRobotsNofollow = 'follow'
   }
+
 
   return (
     <>
