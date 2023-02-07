@@ -153,7 +153,7 @@ export default function Form({ form }: Props) {
       ) : null}
       <Box display="flex" mt={4}>
         <Button type="submit" variant="primary" disabled={loading} ml="auto">
-          {form?.button?.text || "Submit"}
+          {form?.submitButton?.text}
         </Button>
       </Box>
     </form>

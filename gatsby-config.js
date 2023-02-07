@@ -11,6 +11,7 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
   // proxy: {
   //   prefix: `/__third-party-proxy?url=*`,

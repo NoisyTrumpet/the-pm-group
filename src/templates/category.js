@@ -93,15 +93,14 @@ const Category = ({ data }) => {
             gap={3}
           >
             {works &&
-              works.map(item => {
-                const { title, id, videoFields, theWorkImage } = item
+              works.map(({ title, id, videoFields, theWorkImage, featuredImage, workAudio }, i) => {
 
                 const { videoLink, videoCoverImage } = videoFields
 
                 const isVideo = videoLink ? true : false
 
                 return (
-                  <Fade bottom key={id}>
+                  <Fade bottom key={`${id}-${i}-work-item`}>
                     <WorkItem
                       title={title}
                       type={isVideo ? "Television" : name}
@@ -109,12 +108,12 @@ const Category = ({ data }) => {
                         isVideo
                           ? videoCoverImage?.localFile?.childImageSharp
                           : theWorkImage?.photoLink?.localFile
-                              ?.childImageSharp ||
-                            item.featuredImage?.node?.localFile?.childImageSharp
+                            ?.childImageSharp ||
+                          featuredImage?.node?.localFile?.childImageSharp
                       }
                       media={
-                        item.videoFields.videoLink ||
-                        item.workAudio.radioClip?.link ||
+                        videoFields.videoLink ||
+                        workAudio.radioClip?.link ||
                         ""
                       }
                     />
