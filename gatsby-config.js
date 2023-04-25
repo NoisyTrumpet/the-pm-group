@@ -105,14 +105,6 @@ module.exports = {
                     hardCacheMediaFiles: true,
                     allow404Images: true,
                 },
-                debug: {
-                    graphql: {
-                        showQueryVarsOnError: true,
-                        showQueryOnError: true,
-                        copyQueryOnError: true,
-                        panicOnError: false,
-                    }
-                },
                 develop: {
                     hardCacheData: true,
                     hardCacheMediaFiles: true,
@@ -122,8 +114,8 @@ module.exports = {
                     useGatsbyImage: false,
                 },
                 schema: {
-                    perPage: 5,
-                    requestConcurrency: 5,
+                    // perPage: 5,
+                    // requestConcurrency: 5,
                     timeout: 100000000,
                 },
                 type: {

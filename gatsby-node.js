@@ -22,8 +22,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     )
     return new Promise((resolve, reject) => {
         graphql(
-            `
-        {
+            `{
           workTemplates: allWpCategory {
             edges {
               node {
