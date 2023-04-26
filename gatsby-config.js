@@ -114,9 +114,9 @@ module.exports = {
                     useGatsbyImage: false,
                 },
                 schema: {
-                    // perPage: 5,
+                    perPage: 25,
                     // requestConcurrency: 5,
-                    timeout: 10000,
+                    timeout: 400000,
                 },
                 type: {
                     Post: {
