@@ -116,7 +116,7 @@ module.exports = {
                 schema: {
                     // perPage: 5,
                     // requestConcurrency: 5,
-                    timeout: 100000000,
+                    timeout: 10000,
                 },
                 type: {
                     Post: {
