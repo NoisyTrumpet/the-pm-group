@@ -99,24 +99,26 @@ module.exports = {
              */
             resolve: `gatsby-source-wordpress`,
             options: {
-                // the only required plugin option for WordPress is the GraphQL url.
                 url: process.env.WPGRAPHQL_URL,
+                // // Production
+                debug: {
+                    preview: true,
+                },
                 production: {
                     hardCacheMediaFiles: true,
                     allow404Images: true,
                 },
+                // Development
                 develop: {
                     hardCacheData: true,
                     hardCacheMediaFiles: true,
                 },
+                schema: {
+                    timeout: 100000,
+                },
                 // Don't use gatsby image in html
                 html: {
                     useGatsbyImage: false,
-                },
-                schema: {
-                    perPage: 25,
-                    // requestConcurrency: 5,
-                    timeout: 400000,
                 },
                 type: {
                     Post: {
