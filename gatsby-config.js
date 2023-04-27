@@ -115,6 +115,7 @@ module.exports = {
                 },
                 schema: {
                     timeout: 100000,
+                    perPage: 25,
                 },
                 // Don't use gatsby image in html
                 html: {
