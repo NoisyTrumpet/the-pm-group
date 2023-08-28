@@ -6,7 +6,7 @@ exports.updateSchema = (seo, breadcrumbs) => {
 
   // Find breadcrumb list
   const breadcrumbIndex = schemaObj["@graph"].findIndex(
-    schema => schema["@type"] === "BreadcrumbList"
+    schema => schema["@type"] === "BreadcrumbList",
   )
 
   // Modify breadcrumb list
@@ -33,4 +33,3 @@ exports.updateSchema = (seo, breadcrumbs) => {
 
   return JSON.stringify(schemaObj)
 }
-

@@ -74,7 +74,7 @@ export default function Form({ form }: Props) {
   const haveFieldErrors = Boolean(data?.submitGfForm?.errors?.length)
   const wasSuccessfullySubmitted = haveEntryId && !haveFieldErrors
   const defaultConfirmation = form.confirmations?.find(
-    (confirmation: { isDefault: boolean }) => confirmation?.isDefault
+    (confirmation: { isDefault: boolean }) => confirmation?.isDefault,
   )
   const formFields = form.formFields?.nodes || []
   const { state } = useGravityForm()
@@ -98,7 +98,7 @@ export default function Form({ form }: Props) {
   function getFieldErrors(id: number): FieldError[] {
     if (!haveFieldErrors) return []
     const filteredErrors = data.submitGfForm.errors.filter(
-      (error: FieldError) => error.id === id
+      (error: FieldError) => error.id === id,
     )
     toast({
       position: "bottom",

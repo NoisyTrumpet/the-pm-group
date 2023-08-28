@@ -103,7 +103,7 @@ const Category = ({ data }) => {
                     featuredImage,
                     workAudio,
                   },
-                  i
+                  i,
                 ) => {
                   const { videoLink, videoCoverImage } = videoFields
 
@@ -117,10 +117,10 @@ const Category = ({ data }) => {
                         image={
                           isVideo
                             ? videoCoverImage?.localFile?.childImageSharp ||
-                            featuredImage?.node?.localFile?.childImageSharp
+                              featuredImage?.node?.localFile?.childImageSharp
                             : theWorkImage?.photoLink?.localFile
-                              ?.childImageSharp ||
-                            featuredImage?.node?.localFile?.childImageSharp
+                                ?.childImageSharp ||
+                              featuredImage?.node?.localFile?.childImageSharp
                         }
                         media={
                           videoFields.videoLink ||
@@ -130,7 +130,7 @@ const Category = ({ data }) => {
                       />
                     </Fade>
                   )
-                }
+                },
               )}
           </Grid>
         </Box>

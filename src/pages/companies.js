@@ -5,12 +5,10 @@ import GenericHero from "../components/GenericHero"
 import { ctaItems, ctaLink, ctaText } from "../constants/cta"
 import PrimaryCTA from "../components/PrimaryCTA"
 import CompanyItems from "../components/CompanyItems"
-import { updateSchema } from 'utils'
+import { updateSchema } from "utils"
 
 const CompaniesPage = ({ data: { wpPage } }) => {
-  const {
-    seo,
-  } = wpPage
+  const { seo } = wpPage
   const hasSchema = seo && seo.schema && seo.schema.raw !== null
   // Hero Fields
   const heroTitle = wpPage.ourCompaniesFields.companiesHero.title
@@ -21,8 +19,8 @@ const CompaniesPage = ({ data: { wpPage } }) => {
   if (hasSchema) {
     const updatedSchema = updateSchema(seo, [
       {
-        title: 'Home',
-        href: 'https://thepmgrp.com/',
+        title: "Home",
+        href: "https://thepmgrp.com/",
       },
       {
         title: wpPage.title,
@@ -32,10 +30,9 @@ const CompaniesPage = ({ data: { wpPage } }) => {
 
     seo.schema.raw = updatedSchema
 
-    seo.metaRobotsNoindex = 'index'
-    seo.metaRobotsNofollow = 'follow'
+    seo.metaRobotsNoindex = "index"
+    seo.metaRobotsNofollow = "follow"
   }
-
 
   return (
     <>

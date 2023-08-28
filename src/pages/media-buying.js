@@ -35,7 +35,7 @@ const MediaBuying = ({ data, context }) => {
     // Replace all instances of '"/"' in seo.schema.raw with '"https://thepmgrp.com/"'
     const schemaRaw = data.wpPage.seo.schema.raw.replace(
       /"\/"/g,
-      '"https://thepmgrp.com/"'
+      '"https://thepmgrp.com/"',
     )
     // Initalize schema object
     const schemaObj = JSON.parse(schemaRaw)

@@ -143,7 +143,7 @@ const Hero = ({ title, caption, textGradientStyle, slides }) => {
                     >
                       <GatsbyImage
                         image={getImage(
-                          slide?.image?.localFile?.childImageSharp
+                          slide?.image?.localFile?.childImageSharp,
                         )}
                         style={{
                           maxWidth: "100%",

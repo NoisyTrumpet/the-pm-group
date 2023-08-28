@@ -46,7 +46,7 @@ export default function AddressField({ field, fieldErrors, formId }: Props) {
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(
-    (fieldValue: FieldValue) => fieldValue.id === id
+    (fieldValue: FieldValue) => fieldValue.id === id,
   ) as AddressFieldValue | undefined
   const addressValues = fieldValue?.addressValues || DEFAULT_VALUE
 

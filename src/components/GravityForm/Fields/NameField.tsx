@@ -60,7 +60,7 @@ export default function NameField({ field, fieldErrors }: Props) {
   const htmlId = `field_${formId}_${id}`
   const { state, dispatch } = useGravityForm()
   const fieldValue = state.find(
-    (fieldValue: FieldValue) => fieldValue.id === id
+    (fieldValue: FieldValue) => fieldValue.id === id,
   ) as NameFieldValue | undefined
   const nameValues = fieldValue?.nameValues || DEFAULT_VALUE
 
@@ -68,7 +68,7 @@ export default function NameField({ field, fieldErrors }: Props) {
   const otherInputs = inputs?.filter(input => input?.key !== "prefix") || []
 
   function handleChange(
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) {
     const { name, value } = event.target
     const newNameValues = { ...nameValues, [name]: value }

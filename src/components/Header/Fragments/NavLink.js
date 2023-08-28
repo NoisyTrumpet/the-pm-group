@@ -38,7 +38,7 @@ const NavLink = props => {
           color: mode("secondary", "black"),
           textDecoration: mode(
             "underline solid secondary",
-            "underline solid secondary"
+            "underline solid secondary",
           ),
         }}
         _activeLink={{

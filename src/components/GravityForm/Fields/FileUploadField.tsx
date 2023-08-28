@@ -40,7 +40,7 @@ export default function FileUploadField({ field, fieldErrors }: Props) {
   const { state, dispatch } = useGravityForm()
 
   const fieldValue = state.find(
-    (fieldValue: FieldValue) => fieldValue.id === id
+    (fieldValue: FieldValue) => fieldValue.id === id,
   ) as FileUploadFieldValue | undefined
 
   return (

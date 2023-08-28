@@ -52,7 +52,7 @@ const BlogGrid = ({ posts }) => {
                   category={post.categories.nodes[0].name}
                 />
               </Fade>
-            )
+            ),
           )}
         </SimpleGrid>
       </Box>

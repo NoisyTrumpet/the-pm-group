@@ -59,7 +59,7 @@ const NavBar = ({ children, menu, siteTitle, ...props }) => {
                 {node.label}
               </NavLink>
             )}
-          </ListItem>
+          </ListItem>,
         )
       } else {
         subLinks.push(node)
