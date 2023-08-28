@@ -17,6 +17,8 @@ const WorkModal = ({ title, id, videoLink, isVideo, image, children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
+  console.log(`Video Link for ${title} is:`, videoLink);
+
   const videoId = videoLink && videoLink.split("v=")
 
   if (isVideo) {
