@@ -43,7 +43,6 @@ module.exports = {
     // Peact for speed!
     // `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
-    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
