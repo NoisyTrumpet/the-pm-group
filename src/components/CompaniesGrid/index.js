@@ -2,7 +2,6 @@ import { Grid, Box } from "@chakra-ui/layout"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 import Link from "../Link/Link"
-import "./styles.scss"
 
 const CompaniesGrid = ({ companies, image }) => {
   return (
