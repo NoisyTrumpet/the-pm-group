@@ -17,7 +17,7 @@ const CompaniesGrid = ({ companies, image }) => {
           templateColumns={[
             `repeat(2, 1fr)`,
             `repeat(3, 1fr)`,
-            `repeat(5, 1fr)`,
+            `repeat(6, 1fr)`,
           ]}
           placeItems="center"
           gap={6}
